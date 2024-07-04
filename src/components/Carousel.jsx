@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { storage } from "@/firebase";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
+import Loading from "./Loading";
 
 export const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesArray, setImagesArray] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
 
-  useEffect(() => {
+  useMemo(() => {
     const fetchImages = async () => {
       try {
         const listRef = ref(storage, "Carrossel/");
@@ -23,6 +26,12 @@ export const Carousel = () => {
   }, []);
 
   useEffect(() => {
+    if (imagesArray.length > 0 && imagesLoaded === imagesArray.length) {
+      setLoading(false);
+    }
+  }, [imagesArray.length, imagesLoaded]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesArray.length);
     }, 5000);
@@ -30,9 +39,14 @@ export const Carousel = () => {
     return () => clearInterval(interval);
   }, [imagesArray.length]);
 
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => prev + 1);
+  };
+
   return (
     <>
-      <div className="h-[95vh] relative -mt-24">
+      {loading && <Loading />}
+      <div className={`h-[95vh] relative -mt-24 ${loading ? "hidden" : ""}`}>
         <div className="bg-black absolute w-full h-full z-20 opacity-60"></div>
 
         {imagesArray.map((imageUrl, index) => (
@@ -64,6 +78,16 @@ export const Carousel = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div className="hidden">
+        {imagesArray.map((imageUrl, index) => (
+          <img
+            key={index}
+            src={imageUrl}
+            onLoad={handleImageLoad}
+            alt={`Carrossel ${index}`}
+          />
+        ))}
       </div>
     </>
   );

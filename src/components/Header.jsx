@@ -28,7 +28,7 @@ export const Header = () => {
           className="w-8 h-8 text-orange-600 lg:hidden"
           onClick={() => setIsMenu(!isMenu)}
         />
-        <Menu menuOpen={isMenu} />
+        <Menu menuOpen={isMenu} setIsMenu={setIsMenu} />
         <Navbar />
       </div>
     </header>
