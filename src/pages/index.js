@@ -1,11 +1,12 @@
 import { Carousel } from "@/components/Carousel";
-import Image from "next/image";
+import moment from "moment";
 
 export default function Home() {
   return (
     <>
       <Carousel />
 
+      {/* About */}
       <div className="mt-5 bg-neutral-900 flex flex-col justify-center items-center px-10 py-14 md:px-20">
         <div className="xl:flex xl:flex-row-reverse xl:justify-center xl:items-center xl:text-center xl:gap-5 xl:ml-12">
           <div className="xl:flex xl:flex-col xl:justify-start xl:w-[500px] xl:ml-10">
@@ -37,6 +38,28 @@ export default function Home() {
             Perfeito para quem busca tranquilidade e contato com a natureza.
           </p>
         </div>
+      </div>
+
+      {/* Events */}
+      <div className="mt-5 bg-neutral-900 flex flex-col justify-center px-10 py-14 md:px-20">
+        <h1 className="text-5xl md:text-6xl">Eventos</h1>
+        <p className="mt-5 text-2xl ">
+          Aqui se econtra o quadro de todos os eventos que acontecem durante o
+          ano no nosso lugarzinho! 💝
+        </p>
+
+        <div></div>
+      </div>
+
+      {/* Packs */}
+      <div className="mt-5 bg-neutral-900 flex flex-col justify-center px-10 py-14 md:px-20">
+        <h1 className="text-5xl md:text-6xl">Pacotes para {moment().year()}</h1>
+        <p className="mt-5 text-2xl ">
+          Aqui se econtra o quadro de pacotes que oferecemos durante o ano no
+          nosso lugarzinho! 💝
+        </p>
+
+        <div></div>
       </div>
     </>
   );
