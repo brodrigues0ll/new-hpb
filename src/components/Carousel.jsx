@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 const imagesPack = {
-  img1: "https://wallpapers.com/images/featured-full/landscape-293chzhp3r67ag4a.jpg",
-  img2: "https://wallpapers.com/images/high/rocky-mountains-and-hills-p054gugzhz73an8y.webp",
-  img3: "https://wallpapers.com/images/high/hoover-dam-during-golden-hour-qdtdqtc7lxs2iqq4.webp",
-  img4: "https://wallpapers.com/images/high/4k-ultra-hd-landscape-wallpaper-e04zdr8jvs58c4ap.webp",
+  img1: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F1.png?alt=media&token=feeb8bbd-3fa0-4a39-af7b-c364a51f06a4",
+
+  img2: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F2.png?alt=media&token=243a853a-6f0d-439f-9e46-524e5a2426b9",
+
+  img3: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F3.png?alt=media&token=83e60815-b7ed-43a1-bda5-af753c7c2b61",
+
+  img4: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F4.png?alt=media&token=3a0b6592-4cc8-45c8-85dd-493aebdbd53a",
 };
 
 export const Carousel = () => {
