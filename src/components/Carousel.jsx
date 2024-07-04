@@ -33,7 +33,7 @@ export const Carousel = () => {
   return (
     <>
       <div className="h-[95vh] relative -mt-24">
-        <div className="bg-black absolute w-full h-full z-20 opacity-40"></div>
+        <div className="bg-black absolute w-full h-full z-20 opacity-60"></div>
 
         {imagesArray.map((imageUrl, index) => (
           <div

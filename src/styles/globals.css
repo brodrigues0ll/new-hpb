@@ -18,6 +18,6 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(26 26 27);
+  background: #212121;
   font-family: "ProximaNova";
 }

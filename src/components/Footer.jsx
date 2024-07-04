@@ -7,7 +7,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 export const Footer = () => {
   const router = useRouter();
   return (
-    <footer className="bg-neutral-900">
+    <footer className="bg-neutral-900 mt-10">
       <div className="mx-auto max-w-[1600px] p-5 py-10 grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-4">
         <div className="text-orange-500 text-lg flex flex-col justify-center items-center gap-5">
           <Image
