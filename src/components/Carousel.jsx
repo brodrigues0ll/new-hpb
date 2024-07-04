@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
-
-const imagesPack = {
-  img1: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F1.png?alt=media&token=feeb8bbd-3fa0-4a39-af7b-c364a51f06a4",
-
-  img2: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F2.png?alt=media&token=243a853a-6f0d-439f-9e46-524e5a2426b9",
-
-  img3: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F3.png?alt=media&token=83e60815-b7ed-43a1-bda5-af753c7c2b61",
-
-  img4: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/Carrossel%2F4.png?alt=media&token=3a0b6592-4cc8-45c8-85dd-493aebdbd53a",
-};
+import { storage } from "@/firebase";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
 
 export const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const imagesArray = Object.values(imagesPack);
+  const [imagesArray, setImagesArray] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const listRef = ref(storage, "Carrossel/");
+        const res = await listAll(listRef);
+        const urlPromises = res.items.map((itemRef) => getDownloadURL(itemRef));
+        const urls = await Promise.all(urlPromises);
+        setImagesArray(urls);
+      } catch (error) {
+        console.error("Erro ao buscar imagens do Firebase Storage:", error);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,7 +33,7 @@ export const Carousel = () => {
   return (
     <>
       <div className="h-[95vh] relative -mt-24">
-        <div className="bg-black absolute w-full h-full z-20 opacity-50"></div>
+        <div className="bg-black absolute w-full h-full z-20 opacity-40"></div>
 
         {imagesArray.map((imageUrl, index) => (
           <div
@@ -39,7 +47,7 @@ export const Carousel = () => {
         <div className="h-full w-full relative z-30 top-10 px-8 flex flex-col justify-center">
           <div className="xl:pl-32">
             <h1 className="text-5xl font-bold md:text-8xl">Lugar de Paz</h1>
-            <p className="text-2xl my-16 md:text-5xl lg:w-[80%] xl:w-[70%] ">
+            <p className="text-2xl my-16 md:text-5xl lg:w-[80%] xl:w-[70%]">
               Um paraíso em meio às montanhas da região serrana de Macaé para
               você desfrutar da natureza com requinte e qualidade.
             </p>
