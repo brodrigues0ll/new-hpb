@@ -21,3 +21,7 @@ body {
   background: #212121;
   font-family: "ProximaNova";
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}

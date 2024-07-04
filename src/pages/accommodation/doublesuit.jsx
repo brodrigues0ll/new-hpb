@@ -1,27 +1,19 @@
 import React from "react";
-import { TbAirConditioningDisabled } from "react-icons/tb";
-import { PiTelevisionSimple } from "react-icons/pi";
-import { FaWifi } from "react-icons/fa6";
-import { LuRefrigerator } from "react-icons/lu";
-import { MdLocationPin } from "react-icons/md";
 
-const simplesuit = () => {
+const doublesuit = () => {
   return (
-    <div className="md:flex md:flex-col md:justify-center md:items-center lg:flex-row-reverse max-w-[1600px]">
+    <div>
       <div
-        className="h-72 bg-center bg-cover mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10"
+        className="h-72 bg-center bg-cover mb-5 md:h-[150px]"
         style={{
-          backgroundImage: `url(https://img.freepik.com/free-photo/luxury-classic-modern-bedroom-suite-hotel_105762-1787.jpg?t=st=1720128823~exp=1720132423~hmac=6892ed552f3010ebd9de09c46ceaa275742a09a55478216ff4b0ec8aee99c6a2&w=1380)`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/SuiteSimples%2Fsuite_simples_4.jpg?alt=media&token=be43a931-c8bb-4b60-a03c-99138847d40d)`,
         }}
       />
 
-      <div className="px-5 md:px-32 lg:w-[400px] lg:px-10 2xl:w-[600px]">
+      <div className="px-5">
         <div>
           <h1 className="text-4xl font-bold">Suíte Simples</h1>
-          <div className="text-zinc-400 flex items-center gap-1">
-            <MdLocationPin />
-            <p>Sana, Macaé</p>
-          </div>
+          <p className="text-zinc-400">Sana, Macaé</p>
         </div>
 
         <div>
@@ -61,4 +53,4 @@ const simplesuit = () => {
   );
 };
 
-export default simplesuit;
+export default doublesuit;

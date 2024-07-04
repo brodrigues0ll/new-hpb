@@ -8,7 +8,7 @@ const index = () => {
         title="Suíte Simples"
         desc="Suítes com Vista para o rio, uma ótima opção para se ouvir as águas do rio Sana."
         href="/accommodation/simplesuit"
-        srcImg="https://sthotelsmalta.com/wp-content/uploads/2022/06/modern-luxury-bedroom-suite-and-bathroom-with-working-table-scaled.jpg"
+        srcImg="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/SuiteSimples%2Fsuite_simples_7.jpg?alt=media&token=8e3d66bc-514d-407c-b321-e10a0beccece"
       />
 
       <AccommodCard
