@@ -11,7 +11,7 @@ const simplesuit = () => {
       <div
         className="h-72 bg-center bg-cover mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10"
         style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/SuiteSimples%2Fsuite_simples_4.jpg?alt=media&token=be43a931-c8bb-4b60-a03c-99138847d40d)`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/SuiteSimples%2Fsuite_simples_4_11zon.webp?alt=media&token=b740b720-cd53-4415-a608-690c6c24b376)`,
         }}
       />
 

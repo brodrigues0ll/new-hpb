@@ -11,7 +11,7 @@ const triplesuit = () => {
       <div
         className="h-72 bg-center bg-cover mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10"
         style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleTriplo%2Fchale_triplo_5.jpg?alt=media&token=43de11d7-73d7-4fd9-bd32-6349109d3e66`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleTriplo%2Fchale_triplo_5_11zon.webp?alt=media&token=6c5427f3-354d-4567-b109-99a14d6ae7b1)`,
         }}
       />
 

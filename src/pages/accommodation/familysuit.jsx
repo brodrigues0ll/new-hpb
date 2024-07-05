@@ -11,7 +11,7 @@ const familysuit = () => {
       <div
         className="h-72 bg-center bg-cover mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10"
         style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleFamilia%2F1.jpg?alt=media&token=57cf06e3-0425-4608-af86-248e010839bc)`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleFamilia%2F1_11zon%20(1).webp?alt=media&token=b20f139c-f988-49b9-84a9-453f901b2874)`,
         }}
       />
 

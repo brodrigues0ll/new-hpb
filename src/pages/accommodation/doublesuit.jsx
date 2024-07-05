@@ -11,7 +11,7 @@ const doublesuit = () => {
       <div
         className="h-72 bg-center bg-cover mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10"
         style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleDuplo%2Fchale_duplo_2.jpg?alt=media&token=da28c252-af40-4170-bd6f-70f0bf55340d)`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleDuplo%2Fchale_duplo_2_11zon.webp?alt=media&token=58a33153-ff77-405c-80fa-6fd4d0d0be92)`,
         }}
       />
 

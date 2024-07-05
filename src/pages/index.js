@@ -21,7 +21,7 @@ export default function Home() {
           <div
             className="h-[150px] w-[300px] rounded-2xl bg-cover bg-bottom md:h-[340px] md:w-[700px] xl:h-[300px] xl:w-[600px]"
             style={{
-              backgroundImage: `url("https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_13.jpg?alt=media&token=5523ed38-407e-4174-894b-1cddfec69ad0")`,
+              backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_13_11zon.webp?alt=media&token=1cf08554-ae0f-46cb-aeb3-1f656c5fa19f)`,
             }}
           />
         </div>
@@ -30,7 +30,7 @@ export default function Home() {
           <div
             className="h-[150px] w-[300px] rounded-2xl bg-cover bg-bottom md:h-[340px] md:w-[700px] xl:h-[300px] xl:w-[600px]"
             style={{
-              backgroundImage: `url("https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_3.jpg?alt=media&token=4cee57c2-0c37-4ee0-ac65-abf4a034cef6")`,
+              backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_3_11zon.webp?alt=media&token=1c5cbdec-289e-4a1f-a09a-518a9e8820b0)`,
             }}
           />
           <div />
