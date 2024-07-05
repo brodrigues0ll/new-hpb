@@ -15,21 +15,21 @@ const index = () => {
         title="Chalé Duplo"
         desc="Chalé composto por garagem privativa, varanda com rede onde se pode desfrutar de uma paisagem deslumbrante das montanhas, piscinas e do Rio Sana."
         href="/accommodation/doublesuit"
-        srcImg="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg?quality=75&auto=webp"
+        srcImg="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleDuplo%2F1.jpg?alt=media&token=0e90149e-983c-424d-a2d9-9ae4ee8da0e7"
       />
 
       <AccommodCard
         title="Chalé Triplo"
         desc="Chalé composto por garagem privativa, varanda com rede onde se pode desfrutar de uma paisagem deslumbrante. Além de um amplo espaço interno."
         href="/accommodation/triplesuit"
-        srcImg="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg?quality=75&auto=webp"
+        srcImg="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleTriplo%2Fchale_triplo.jpg?alt=media&token=06b9b8c5-da34-401b-8efa-d0850c1199e5"
       />
 
       <AccommodCard
         title="Chalé Família"
         desc="Temos opções para quem ama viajar em família e que querem ficar juntinhos. Com dois quartos, nossos chalés família são perfeitos para acomodar todos com conforto."
         href="/accommodation/familysuit"
-        srcImg="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg?quality=75&auto=webp"
+        srcImg="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleFamilia%2Fchale_familia_4.jpg?alt=media&token=6680850b-48c2-4850-938d-eb20ae1f226b"
       />
     </div>
   );

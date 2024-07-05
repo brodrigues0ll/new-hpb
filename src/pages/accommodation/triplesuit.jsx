@@ -5,19 +5,19 @@ import { FaWifi } from "react-icons/fa6";
 import { LuRefrigerator } from "react-icons/lu";
 import { MdLocationPin } from "react-icons/md";
 
-const simplesuit = () => {
+const triplesuit = () => {
   return (
     <div className="md:flex md:flex-col md:justify-center md:items-center lg:flex-row-reverse max-w-[1600px]">
       <div
         className="h-72 bg-center bg-cover mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10"
         style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/SuiteSimples%2Fsuite_simples_4.jpg?alt=media&token=be43a931-c8bb-4b60-a03c-99138847d40d)`,
+          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleTriplo%2Fchale_triplo_5.jpg?alt=media&token=43de11d7-73d7-4fd9-bd32-6349109d3e66`,
         }}
       />
 
       <div className="px-5 md:px-32 lg:w-[400px] lg:px-10 2xl:w-[600px]">
         <div>
-          <h1 className="text-4xl font-bold">Suíte Simples</h1>
+          <h1 className="text-4xl font-bold">Chalé Triplo</h1>
           <div className="text-zinc-400 flex items-center gap-1">
             <MdLocationPin />
             <p>Sana, Macaé</p>
@@ -61,4 +61,4 @@ const simplesuit = () => {
   );
 };
 
-export default simplesuit;
+export default triplesuit;
