@@ -21,11 +21,11 @@ export const Footer = () => {
           />
 
           <div className="flex flex-wrap gap-4 w-48 justify-center">
-            <h1>INÍCIO</h1>
-            <h1>A POUSADA</h1>
-            <h1>ACOMODAÇÕES</h1>
-            <h1>GALERIA</h1>
-            <h1>CONTATO</h1>
+            <h1 className="cursor-pointer nav-item">INÍCIO</h1>
+            {/* <h1 className="cursor-pointer nav-item">A POUSADA</h1> */}
+            <h1 className="cursor-pointer nav-item">ACOMODAÇÕES</h1>
+            <h1 className="cursor-pointer nav-item">GALERIA</h1>
+            <h1 className="cursor-pointer nav-item">CONTATO</h1>
           </div>
         </div>
 
@@ -54,15 +54,22 @@ export const Footer = () => {
           <h1 className=" font-semibold text-4xl">Redes Sociais</h1>
 
           <div className="flex gap-10 lg:flex-col lg:gap-2">
-            <div className="flex gap-2 items-center hover:text-orange-500">
-              <FaFacebookF className="text-3xl" />
-              <p className="text-xl">Facebook</p>
-            </div>
+            <a
+              href="https://www.facebook.com/HotelPousadaBambuzal"
+              target="_blank"
+            >
+              <div className="flex gap-2 items-center hover:text-orange-500">
+                <FaFacebookF className="text-3xl" />
+                <p className="text-xl">Facebook</p>
+              </div>
+            </a>
 
-            <div className="flex gap-2 items-center hover:text-orange-500">
-              <FaInstagram className="text-3xl" />
-              <p className="text-xl">Instagram</p>
-            </div>
+            <a href="https://www.instagram.com/hotelbambuzal" target="_blank">
+              <div className="flex gap-2 items-center hover:text-orange-500">
+                <FaInstagram className="text-3xl" />
+                <p className="text-xl">Instagram</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>

@@ -3,6 +3,14 @@ import React from "react";
 
 export const Menu = ({ menuOpen, setIsMenu }) => {
   const router = useRouter();
+
+  const isActive = (path) => {
+    if (path === "/") {
+      return router.pathname === path ? "active" : "";
+    }
+    return router.pathname.startsWith(path) ? "active" : "";
+  };
+
   return (
     <div
       className={`${
@@ -10,7 +18,7 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
       } bg-neutral-900 px-7 py-4 text-orange-500 text-lg font-medium absolute top-20 right-5 rounded border-[1px] flex flex-col gap-3`}
     >
       <h1
-        className="cursor-pointer"
+        className={`nav-item cursor-pointer ${isActive("/")}`}
         onClick={() => {
           router.push("/");
           setIsMenu(false);
@@ -18,9 +26,9 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
       >
         INÍCIO
       </h1>
-      <h1>A POUSADA</h1>
+      {/* <h1 className={`nav-item ${isActive("/pousada")}`}>A POUSADA</h1> */}
       <h1
-        className="cursor-pointer"
+        className={`nav-item cursor-pointer ${isActive("/accommodation")}`}
         onClick={() => {
           router.push("/accommodation");
           setIsMenu(false);
@@ -29,7 +37,7 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
         ACOMODAÇÕES
       </h1>
       <h1
-        className="cursor-pointer"
+        className={`nav-item cursor-pointer ${isActive("/gallery")}`}
         onClick={() => {
           router.push("/gallery");
           setIsMenu(false);
@@ -38,7 +46,7 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
         GALERIA
       </h1>
       <h1
-        className="cursor-pointer"
+        className={`nav-item cursor-pointer ${isActive("/contact")}`}
         onClick={() => {
           router.push("/contact");
           setIsMenu(false);

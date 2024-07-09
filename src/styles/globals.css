@@ -25,3 +25,25 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background-color: currentColor;
+  transition: width 0.3s, left 0.3s;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+  left: 0;
+  transform: translateX(0);
+}
