@@ -28,7 +28,10 @@ class MyDocument extends Document {
             property="og:image:height"
             content={metadata.openGraph.images[0].height}
           />
-          <meta property="og:url" content="https://seu-site.com" />{" "}
+          <meta
+            property="og:url"
+            content="https://www.hotelpousadabambuzal.com/"
+          />{" "}
           {/* Substitua pelo URL do seu site */}
           <meta property="og:type" content="website" />
           {/* Meta tags para Twitter */}
