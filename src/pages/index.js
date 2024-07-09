@@ -29,7 +29,7 @@ export default function Home() {
         <div className="xl:flex xl:flex-row-reverse xl:justify-center xl:items-center xl:text-center xl:gap-5 xl:ml-12">
           <div className="xl:flex xl:flex-col xl:justify-start xl:w-[500px] xl:ml-10">
             <h1 className="text-center text-3xl font-bold md:text-6xl">
-              A Pousada
+              Hotel Pousada Bambuzal
             </h1>
             <p className="text-xl mt-8 mb-4 md:text-4xl xl:text-start">
               São mais de 16.000 m² da mais pura beleza natural da região.
