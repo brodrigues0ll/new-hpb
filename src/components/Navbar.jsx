@@ -27,8 +27,9 @@ const Navbar = () => {
         ACOMODAÇÕES
       </h1>
       <h1
-        className={`nav-item cursor-pointer ${isActive("/gallery")}`}
-        onClick={() => router.push("/gallery")}
+        className="text-zinc-500"
+        // className={`nav-item cursor-pointer ${isActive("/gallery")}`}
+        // onClick={() => router.push("/gallery")}
       >
         GALERIA
       </h1>

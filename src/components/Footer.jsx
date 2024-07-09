@@ -24,7 +24,12 @@ export const Footer = () => {
             <h1 className="cursor-pointer nav-item">INÍCIO</h1>
             {/* <h1 className="cursor-pointer nav-item">A POUSADA</h1> */}
             <h1 className="cursor-pointer nav-item">ACOMODAÇÕES</h1>
-            <h1 className="cursor-pointer nav-item">GALERIA</h1>
+            <h1
+              // className="cursor-pointer nav-item"
+              className="text-zinc-500"
+            >
+              GALERIA
+            </h1>
             <h1 className="cursor-pointer nav-item">CONTATO</h1>
           </div>
         </div>

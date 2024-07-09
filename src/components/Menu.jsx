@@ -37,11 +37,12 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
         ACOMODAÇÕES
       </h1>
       <h1
-        className={`nav-item cursor-pointer ${isActive("/gallery")}`}
-        onClick={() => {
-          router.push("/gallery");
-          setIsMenu(false);
-        }}
+        // className={`nav-item cursor-pointer ${isActive("/gallery")}`}
+        className="text-zinc-500"
+        // onClick={() => {
+        //   router.push("/gallery");
+        //   setIsMenu(false);
+        // }}
       >
         GALERIA
       </h1>
