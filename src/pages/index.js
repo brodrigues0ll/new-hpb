@@ -1,5 +1,23 @@
+// pages/index.js
 import { Carousel } from "@/components/Carousel";
 import moment from "moment";
+
+export const metadata = {
+  title: "Hotel Pousada Bambuzal",
+  description: "Hotel Pousada localizado no Sana, Macaé - RJ",
+  openGraph: {
+    title: "Hotel Pousada Bambuzal",
+    description: "Hotel Pousada localizado no Sana, Macaé - RJ",
+    images: [
+      {
+        url: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_13_11zon.webp?alt=media&token=1cf08554-ae0f-46cb-aeb3-1f656c5fa19f",
+        width: 800,
+        height: 600,
+        alt: "Imagem do Carrossel",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (
