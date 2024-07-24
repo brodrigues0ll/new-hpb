@@ -21,8 +21,8 @@ const Navbar = () => {
       </h1>
       {/* <h1 className={`nav-item ${isActive("/pousada")}`}>A POUSADA</h1> */}
       <h1
-        className={`nav-item cursor-pointer ${isActive("/accommodation")}`}
-        onClick={() => router.push("/accommodation")}
+        className={`nav-item cursor-pointer ${isActive("/acomodacoes")}`}
+        onClick={() => router.push("/acomodacoes")}
       >
         ACOMODAÇÕES
       </h1>

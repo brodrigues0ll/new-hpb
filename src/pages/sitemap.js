@@ -24,7 +24,7 @@ async function generateSitemap() {
       lastModified: new Date().toISOString(),
     },
     {
-      url: "https://www.hotelpousadabambuzal.com/accommodation",
+      url: "https://www.hotelpousadabambuzal.com/acomodacoes",
       lastModified: new Date().toISOString(),
     },
     {

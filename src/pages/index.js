@@ -1,6 +1,6 @@
 import { Carousel } from "@/components/Carousel";
 import Image from "next/image";
-import Head from "next/head";
+
 
 export const metadata = {
   title: "Hotel Pousada Bambuzal",
