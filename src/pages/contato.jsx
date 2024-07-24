@@ -4,7 +4,7 @@ import { LuMapPin, LuMail } from "react-icons/lu";
 import { BsTelephoneFill } from "react-icons/bs";
 import { ContactCard } from "@/components/ContactCard";
 
-const contact = () => {
+const contato = () => {
   return (
     <div className="">
       <div className="flex flex-col justify-center items-center py-10 gap-5">
@@ -63,4 +63,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default contato;

@@ -28,9 +28,9 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
       </h1>
       {/* <h1 className={`nav-item ${isActive("/pousada")}`}>A POUSADA</h1> */}
       <h1
-        className={`nav-item cursor-pointer ${isActive("/accommodation")}`}
+        className={`nav-item cursor-pointer ${isActive("/acomodacoes")}`}
         onClick={() => {
-          router.push("/accommodation");
+          router.push("/acomodacoes");
           setIsMenu(false);
         }}
       >
@@ -47,9 +47,9 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
         GALERIA
       </h1>
       <h1
-        className={`nav-item cursor-pointer ${isActive("/contact")}`}
+        className={`nav-item cursor-pointer ${isActive("/contato")}`}
         onClick={() => {
-          router.push("/contact");
+          router.push("/contato");
           setIsMenu(false);
         }}
       >

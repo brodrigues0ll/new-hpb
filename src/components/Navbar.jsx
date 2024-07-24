@@ -21,8 +21,8 @@ const Navbar = () => {
       </h1>
       {/* <h1 className={`nav-item ${isActive("/pousada")}`}>A POUSADA</h1> */}
       <h1
-        className={`nav-item cursor-pointer ${isActive("/accommodation")}`}
-        onClick={() => router.push("/accommodation")}
+        className={`nav-item cursor-pointer ${isActive("/acomodacoes")}`}
+        onClick={() => router.push("/acomodacoes")}
       >
         ACOMODAÇÕES
       </h1>
@@ -34,8 +34,8 @@ const Navbar = () => {
         GALERIA
       </h1>
       <h1
-        className={`nav-item cursor-pointer ${isActive("/contact")}`}
-        onClick={() => router.push("/contact")}
+        className={`nav-item cursor-pointer ${isActive("/contato")}`}
+        onClick={() => router.push("/contato")}
       >
         CONTATO
       </h1>
