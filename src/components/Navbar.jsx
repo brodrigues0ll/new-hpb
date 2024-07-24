@@ -34,8 +34,8 @@ const Navbar = () => {
         GALERIA
       </h1>
       <h1
-        className={`nav-item cursor-pointer ${isActive("/contact")}`}
-        onClick={() => router.push("/contact")}
+        className={`nav-item cursor-pointer ${isActive("/contato")}`}
+        onClick={() => router.push("/contato")}
       >
         CONTATO
       </h1>

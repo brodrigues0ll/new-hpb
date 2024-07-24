@@ -47,9 +47,9 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
         GALERIA
       </h1>
       <h1
-        className={`nav-item cursor-pointer ${isActive("/contact")}`}
+        className={`nav-item cursor-pointer ${isActive("/contato")}`}
         onClick={() => {
-          router.push("/contact");
+          router.push("/contato");
           setIsMenu(false);
         }}
       >
