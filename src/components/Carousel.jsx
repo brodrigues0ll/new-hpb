@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { storage } from "@/firebase";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import Loading from "./Loading";
-import Image from "next/image";
 
 export const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -44,47 +43,21 @@ export const Carousel = () => {
     setImagesLoaded((prev) => prev + 1);
   };
 
-  const renderImage = useCallback(
-    (imageUrl, index) => {
-      const isCurrent = index === currentImageIndex;
-      const isPrev =
-        index ===
-        (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
-      const isNext = index === (currentImageIndex + 1) % imagesArray.length;
-
-      if (!isCurrent && !isPrev && !isNext) return null;
-
-      return (
-        <div
-          key={index}
-          className={`z-10 absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
-            isCurrent ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ zIndex: index }}
-        >
-          <Image
-            src={imageUrl}
-            alt={`Carrossel ${index}`}
-            layout="fill"
-            objectFit="cover"
-            priority={index === 0}
-            onLoadingComplete={handleImageLoad}
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      );
-    },
-    [currentImageIndex, imagesArray.length]
-  );
-
   return (
     <>
       {loading && <Loading />}
       <div className={`h-[95vh] relative -mt-24 ${loading ? "hidden" : ""}`}>
         <div className="bg-black absolute w-full h-full z-20 opacity-60"></div>
 
-        {imagesArray.map(renderImage)}
-
+        {imagesArray.map((imageUrl, index) => (
+          <div
+            key={index}
+            className={`z-10 absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ backgroundImage: `url(${imageUrl})`, zIndex: index }}
+          />
+        ))}
         <div className="h-full w-full relative z-30 top-10 px-8 flex flex-col justify-center">
           <div className="xl:pl-32">
             <h1 className="text-5xl font-bold md:text-8xl">Lugar de Paz</h1>

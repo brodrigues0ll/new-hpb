@@ -1,7 +1,6 @@
 import { Carousel } from "@/components/Carousel";
 import Image from "next/image";
 
-
 export const metadata = {
   title: "Hotel Pousada Bambuzal",
   description: "Hotel Pousada localizado no Sana, Macaé - RJ",
@@ -38,7 +37,7 @@ export default function Home() {
             </p>
           </div>
           <div className="relative h-[150px] w-[300px] md:h-[340px] md:w-[700px] xl:h-[300px] xl:w-[600px] rounded-2xl overflow-hidden">
-            <Image
+            <img
               src="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_13_11zon.webp?alt=media&token=c0945aa2-d8cd-4543-a70c-e4be145b323e"
               alt="Imagem do Hotel Pousada Bambuzal"
               layout="fill"
@@ -49,7 +48,7 @@ export default function Home() {
 
         <div className="xl:flex xl:justify-center xl:items-center xl:text-center xl:gap-5 xl:-ml-12 xl:-mt-10 mt-5">
           <div className="relative h-[150px] w-[300px] md:h-[340px] md:w-[700px] xl:h-[300px] xl:w-[600px] rounded-2xl overflow-hidden">
-            <Image
+            <img
               src="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_3_11zon.webp?alt=media&token=1c5cbdec-289e-4a1f-a09a-518a9e8820b0"
               alt="Imagem do Hotel Pousada Bambuzal"
               layout="fill"
