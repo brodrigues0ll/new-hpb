@@ -1,7 +1,11 @@
 import { AccommodCard } from "@/components/AccommodCard";
-import React from "react";
 
-const index = () => {
+export const metadata = {
+  title: "Acomodações | Hotel Pousada Bambuzal",
+  description: "Conheça nossas acomodações no Hotel Pousada Bambuzal",
+};
+
+export default function Acomodacoes() {
   return (
     <div className="grid grid-cols-1 gap-16 pt-5 justify-items-center md:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center">
       <AccommodCard
@@ -33,6 +37,4 @@ const index = () => {
       />
     </div>
   );
-};
-
-export default index;
+}

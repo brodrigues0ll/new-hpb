@@ -1,23 +1,6 @@
 import { Carousel } from "@/components/Carousel";
 import Image from "next/image";
 
-export const metadata = {
-  title: "Hotel Pousada Bambuzal",
-  description: "Hotel Pousada localizado no Sana, Macaé - RJ",
-  openGraph: {
-    title: "Hotel Pousada Bambuzal",
-    description: "Hotel Pousada localizado no Sana, Macaé - RJ",
-    images: [
-      {
-        url: "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_13_11zon.webp?alt=media&token=1cf08554-ae0f-46cb-aeb3-1f656c5fa19f",
-        width: 800,
-        height: 600,
-        alt: "Imagem do Carrossel",
-      },
-    ],
-  },
-};
-
 export default function Home() {
   const currentYear = new Date().getFullYear();
 
@@ -37,22 +20,24 @@ export default function Home() {
             </p>
           </div>
           <div className="relative h-[150px] w-[300px] md:h-[340px] md:w-[700px] xl:h-[300px] xl:w-[600px] rounded-2xl overflow-hidden">
-            <img
+            <Image
               src="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_13_11zon.webp?alt=media&token=c0945aa2-d8cd-4543-a70c-e4be145b323e"
               alt="Imagem do Hotel Pousada Bambuzal"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 300px, (max-width: 1280px) 700px, 600px"
             />
           </div>
         </div>
 
         <div className="xl:flex xl:justify-center xl:items-center xl:text-center xl:gap-5 xl:-ml-12 xl:-mt-10 mt-5">
           <div className="relative h-[150px] w-[300px] md:h-[340px] md:w-[700px] xl:h-[300px] xl:w-[600px] rounded-2xl overflow-hidden">
-            <img
+            <Image
               src="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_3_11zon.webp?alt=media&token=1c5cbdec-289e-4a1f-a09a-518a9e8820b0"
               alt="Imagem do Hotel Pousada Bambuzal"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 300px, (max-width: 1280px) 700px, 600px"
             />
           </div>
           <div>

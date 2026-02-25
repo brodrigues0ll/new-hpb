@@ -1,14 +1,15 @@
+"use client";
+
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import logo from "../images/logo.png";
 import { AlignJustify } from "lucide-react";
 import { Menu } from "./Menu";
 import Navbar from "./Navbar";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
   const [isMenu, setIsMenu] = useState(false);
-
   const router = useRouter();
 
   return (
@@ -21,7 +22,7 @@ export const Header = () => {
           height={1000}
           className="w-44 cursor-pointer"
           onClick={() => router.push("/")}
-          priority={false}
+          priority={true}
         />
 
         <AlignJustify
