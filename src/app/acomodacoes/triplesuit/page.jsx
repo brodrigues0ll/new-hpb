@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { TbAirConditioningDisabled } from "react-icons/tb";
 import { PiTelevisionSimple } from "react-icons/pi";
 import { FaWifi } from "react-icons/fa6";
@@ -12,12 +13,16 @@ export const metadata = {
 export default function TripleSuit() {
   return (
     <div className="md:flex md:flex-col md:justify-center md:items-center lg:flex-row-reverse max-w-[1600px]">
-      <div
-        className="h-72 bg-center bg-cover mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10"
-        style={{
-          backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleTriplo%2Fchale_triplo_5_11zon.webp?alt=media&token=6c5427f3-354d-4567-b109-99a14d6ae7b1)`,
-        }}
-      />
+      <div className="relative h-72 w-full mb-5 md:h-[450px] md:mb-10 md:w-[700px] lg:mt-10 overflow-hidden">
+        <Image
+          src="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleTriplo%2Fchale_triplo_5_11zon.webp?alt=media&token=6c5427f3-354d-4567-b109-99a14d6ae7b1"
+          alt="Chalé Triplo"
+          fill
+          style={{ objectFit: "cover" }}
+          priority
+          sizes="(max-width: 768px) 100vw, 700px"
+        />
+      </div>
 
       <div className="px-5 md:px-32 lg:w-[400px] lg:px-10 2xl:w-[600px]">
         <div>

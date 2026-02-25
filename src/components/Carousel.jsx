@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import { storage } from "@/firebase";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import Loading from "./Loading";
@@ -9,9 +10,8 @@ export const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesArray, setImagesArray] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
 
-  useMemo(() => {
+  useEffect(() => {
     const fetchImages = async () => {
       try {
         const listRef = ref(storage, "Carrossel/");
@@ -21,6 +21,8 @@ export const Carousel = () => {
         setImagesArray(urls);
       } catch (error) {
         console.error("Erro ao buscar imagens do Firebase Storage:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -28,22 +30,13 @@ export const Carousel = () => {
   }, []);
 
   useEffect(() => {
-    if (imagesArray.length > 0 && imagesLoaded === imagesArray.length) {
-      setLoading(false);
-    }
-  }, [imagesArray.length, imagesLoaded]);
-
-  useEffect(() => {
+    if (imagesArray.length === 0) return;
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesArray.length);
     }, 5000);
 
     return () => clearInterval(interval);
   }, [imagesArray.length]);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
 
   return (
     <>
@@ -54,11 +47,20 @@ export const Carousel = () => {
         {imagesArray.map((imageUrl, index) => (
           <div
             key={index}
-            className={`z-10 absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
+            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
-            style={{ backgroundImage: `url(${imageUrl})`, zIndex: index }}
-          />
+            style={{ zIndex: index }}
+          >
+            <Image
+              src={imageUrl}
+              alt={`Carrossel ${index}`}
+              fill
+              style={{ objectFit: "cover" }}
+              priority={index === 0}
+              sizes="100vw"
+            />
+          </div>
         ))}
         <div className="h-full w-full relative z-30 top-10 px-8 flex flex-col justify-center">
           <div className="xl:pl-32">
@@ -80,16 +82,6 @@ export const Carousel = () => {
             </a>
           </div>
         </div>
-      </div>
-      <div className="hidden">
-        {imagesArray.map((imageUrl, index) => (
-          <img
-            key={index}
-            src={imageUrl}
-            onLoad={handleImageLoad}
-            alt={`Carrossel ${index}`}
-          />
-        ))}
       </div>
     </>
   );

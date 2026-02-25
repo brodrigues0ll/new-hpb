@@ -25,6 +25,7 @@ export default function Home() {
               alt="Imagem do Hotel Pousada Bambuzal"
               fill
               style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 300px, (max-width: 1280px) 700px, 600px"
             />
           </div>
         </div>
@@ -36,6 +37,7 @@ export default function Home() {
               alt="Imagem do Hotel Pousada Bambuzal"
               fill
               style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 300px, (max-width: 1280px) 700px, 600px"
             />
           </div>
           <div>

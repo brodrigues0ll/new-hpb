@@ -22,7 +22,7 @@ export const Header = () => {
           height={1000}
           className="w-44 cursor-pointer"
           onClick={() => router.push("/")}
-          priority={false}
+          priority={true}
         />
 
         <AlignJustify
