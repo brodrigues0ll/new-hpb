@@ -1,40 +1,57 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const NAV_LINKS = [
+  { label: "INÍCIO", href: "/" },
+  { label: "ACOMODAÇÕES", href: "/acomodacoes" },
+  { label: "GALERIA", href: null },
+  { label: "CONTATO", href: "/contato" },
+];
 
 const Navbar = () => {
-  const router = useRouter();
   const pathname = usePathname();
 
-  const isActive = (path) => {
-    if (path === "/") {
-      return pathname === path ? "active" : "";
-    }
-    return pathname.startsWith(path) ? "active" : "";
+  const isActive = (href) => {
+    if (!href) return false;
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
   };
 
   return (
-    <div className="text-orange-500 text-lg hidden lg:flex gap-10">
-      <h1
-        className={`nav-item cursor-pointer ${isActive("/")}`}
-        onClick={() => router.push("/")}
-      >
-        INÍCIO
-      </h1>
-      <h1
-        className={`nav-item cursor-pointer ${isActive("/acomodacoes")}`}
-        onClick={() => router.push("/acomodacoes")}
-      >
-        ACOMODAÇÕES
-      </h1>
-      <h1 className="text-zinc-500">GALERIA</h1>
-      <h1
-        className={`nav-item cursor-pointer ${isActive("/contato")}`}
-        onClick={() => router.push("/contato")}
-      >
-        CONTATO
-      </h1>
-    </div>
+    <nav className="hidden lg:flex items-center gap-8" aria-label="Navegação principal">
+      {NAV_LINKS.map(({ label, href }) => {
+        const active = isActive(href);
+        const disabled = !href;
+
+        if (disabled) {
+          return (
+            <span
+              key={label}
+              className="text-neutral-500 text-sm font-semibold tracking-widest cursor-not-allowed select-none"
+              aria-disabled="true"
+            >
+              {label}
+            </span>
+          );
+        }
+
+        return (
+          <Link
+            key={label}
+            href={href}
+            className={`nav-item text-sm font-semibold tracking-widest transition-colors duration-300 pb-1 ${
+              active
+                ? "text-orange-500 active"
+                : "text-neutral-300 hover:text-orange-400"
+            }`}
+          >
+            {label}
+          </Link>
+        );
+      })}
+    </nav>
   );
 };
 
