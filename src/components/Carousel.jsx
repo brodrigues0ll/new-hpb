@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
+"use client";
+
+import { useState, useEffect, useMemo } from "react";
 import { storage } from "@/firebase";
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import Loading from "./Loading";

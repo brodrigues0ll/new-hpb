@@ -1,6 +1,7 @@
-import React from "react";
+"use client";
+
 import logo from "../images/logo.png";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 

@@ -1,10 +1,14 @@
-import React from "react";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { LuMapPin, LuMail } from "react-icons/lu";
 import { BsTelephoneFill } from "react-icons/bs";
 import { ContactCard } from "@/components/ContactCard";
 
-const contato = () => {
+export const metadata = {
+  title: "Contato | Hotel Pousada Bambuzal",
+  description: "Entre em contato com o Hotel Pousada Bambuzal",
+};
+
+export default function Contato() {
   return (
     <div className="">
       <div className="flex flex-col justify-center items-center py-10 gap-5">
@@ -61,6 +65,4 @@ const contato = () => {
       </div>
     </div>
   );
-};
-
-export default contato;
+}

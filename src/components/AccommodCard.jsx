@@ -1,5 +1,6 @@
-import { useRouter } from "next/router";
-import React from "react";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 export const AccommodCard = ({ title, desc, href, srcImg }) => {
   const router = useRouter();
