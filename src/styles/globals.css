@@ -577,3 +577,17 @@ body::-webkit-scrollbar-thumb {
   background: rgba(234, 88, 12, 0.3);
   color: #fff;
 }
+
+/* ============================================================
+   SKELETON SHIMMER
+   ============================================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #262626 25%,
+    #323232 50%,
+    #262626 75%
+  );
+  background-size: 300% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
