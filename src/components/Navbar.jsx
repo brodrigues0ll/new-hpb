@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const NAV_LINKS = [
   { label: "INÍCIO", href: "/" },
   { label: "ACOMODAÇÕES", href: "/acomodacoes" },
-  { label: "GALERIA", href: null },
+  { label: "GALERIA", href: "/galeria" },
   { label: "CONTATO", href: "/contato" },
 ];
 
@@ -20,7 +20,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="hidden lg:flex items-center gap-8" aria-label="Navegação principal">
+    <nav
+      className="hidden lg:flex items-center gap-8"
+      aria-label="Navegação principal"
+    >
       {NAV_LINKS.map(({ label, href }) => {
         const active = isActive(href);
         const disabled = !href;

@@ -2,39 +2,24 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { storage } from "@/firebase";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
-import Loading from "./Loading";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 const BOOKING_URL =
   "https://book.securebookings.net/roomrate?id=c4dd3ad1-0057-1672770166-46f7-a98b-44ec5a1f6793&lang=br";
 
+const CAROUSEL_IMAGES = [
+  "https://storage.googleapis.com/hp-bambuzal/carousel/1.jpg",
+  "https://storage.googleapis.com/hp-bambuzal/carousel/2.jpg",
+  "https://storage.googleapis.com/hp-bambuzal/carousel/3.jpg",
+  "https://storage.googleapis.com/hp-bambuzal/carousel/4.jpg",
+];
+
 export const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imagesArray, setImagesArray] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const imagesArray = CAROUSEL_IMAGES;
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [titleVisible, setTitleVisible] = useState(true);
   const intervalRef = useRef(null);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const listRef = ref(storage, "Carrossel/");
-        const res = await listAll(listRef);
-        const urlPromises = res.items.map((itemRef) => getDownloadURL(itemRef));
-        const urls = await Promise.all(urlPromises);
-        setImagesArray(urls);
-      } catch (error) {
-        console.error("Erro ao buscar imagens do Firebase Storage:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, []);
 
   const goToSlide = useCallback(
     (index) => {
@@ -84,15 +69,10 @@ export const Carousel = () => {
   };
 
   return (
-    <>
-      {loading && <Loading />}
-
-      <section
-        className={`h-screen min-h-[600px] relative -mt-24 overflow-hidden ${
-          loading ? "hidden" : ""
-        }`}
-        aria-label="Galeria de imagens do hotel"
-      >
+    <section
+      className="h-screen min-h-[580px] relative -mt-20 md:-mt-24 overflow-hidden"
+      aria-label="Galeria de imagens do hotel"
+    >
         {/* Images */}
         {imagesArray.map((imageUrl, index) => (
           <div
@@ -107,10 +87,8 @@ export const Carousel = () => {
               src={imageUrl}
               alt={`Vista do Hotel Pousada Bambuzal - imagem ${index + 1}`}
               fill
-              style={{ objectFit: "cover" }}
               priority={index === 0}
               sizes="100vw"
-              className="transition-transform duration-[8000ms] ease-out"
               style={{
                 objectFit: "cover",
                 transform:
@@ -143,7 +121,7 @@ export const Carousel = () => {
         />
 
         {/* Content */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-end pb-28 md:pb-36 px-6 md:px-12 xl:px-24">
+        <div className="absolute inset-0 z-20 flex flex-col justify-end pb-20 sm:pb-28 md:pb-36 px-5 sm:px-8 md:px-12 xl:px-24">
           {/* Location badge */}
           <div
             className={`flex items-center gap-2 mb-5 transition-all duration-700 ${
@@ -161,7 +139,7 @@ export const Carousel = () => {
 
           {/* Main heading */}
           <h1
-            className={`text-5xl md:text-7xl xl:text-8xl font-bold text-white leading-none tracking-tight mb-4 max-w-3xl transition-all duration-700 ${
+            className={`text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-bold text-white leading-none tracking-tight mb-4 max-w-3xl transition-all duration-700 ${
               titleVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
@@ -174,7 +152,7 @@ export const Carousel = () => {
 
           {/* Subtitle */}
           <p
-            className={`text-base md:text-xl text-neutral-300 max-w-xl leading-relaxed mb-8 transition-all duration-700 ${
+            className={`text-sm sm:text-base md:text-xl text-neutral-300 max-w-xs sm:max-w-sm md:max-w-xl leading-relaxed mb-6 sm:mb-8 transition-all duration-700 ${
               titleVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
@@ -204,9 +182,9 @@ export const Carousel = () => {
                 onClick={handleRipple}
                 className="
                   relative overflow-hidden
-                  px-8 py-4 md:px-12 md:py-5
+                  px-6 py-3.5 sm:px-8 sm:py-4 md:px-12 md:py-5
                   rounded-full
-                  text-sm md:text-base font-bold tracking-widest text-white
+                  text-xs sm:text-sm md:text-base font-bold tracking-widest text-white
                   bg-orange-600
                   hover:bg-orange-500
                   transition-all duration-300
@@ -278,7 +256,6 @@ export const Carousel = () => {
             ))}
           </div>
         )}
-      </section>
-    </>
+    </section>
   );
 };

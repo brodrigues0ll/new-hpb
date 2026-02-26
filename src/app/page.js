@@ -26,21 +26,21 @@ const ACCOMMODATIONS = [
     desc: "Suítes com Vista para o rio, uma ótima opção para se ouvir as águas do rio Sana.",
     href: "/acomodacoes/simplesuit",
     srcImg:
-      "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/SuiteSimples%2Fsuite_simples_7_11zon.webp?alt=media&token=c43eb63c-d335-401f-bc1b-d73c791d368c",
+      "https://storage.googleapis.com/hp-bambuzal/acomod/suite-simples/home-cover.jpg",
   },
   {
     title: "Chalé Duplo",
     desc: "Chalé composto por garagem privativa, varanda com rede onde se pode desfrutar de uma paisagem deslumbrante das montanhas.",
     href: "/acomodacoes/doublesuit",
     srcImg:
-      "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleDuplo%2F1_11zon.webp?alt=media&token=bc9ea4f1-78dd-4576-a814-f81ad1e3008d",
+      "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/home-cover.jpg",
   },
   {
     title: "Chalé Família",
     desc: "Com dois quartos, nossos chalés família são perfeitos para acomodar todos com conforto e elegância.",
     href: "/acomodacoes/familysuit",
     srcImg:
-      "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleFamilia%2Fchale_familia_4_11zon.webp?alt=media&token=261c1bd9-36d1-46ae-b02a-e7bd0eac98c6",
+      "https://storage.googleapis.com/hp-bambuzal/acomod/chale-familia/home-cover.jpg",
   },
 ];
 
@@ -90,11 +90,11 @@ function useScrollReveal(options = {}) {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px", ...options }
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px", ...options },
     );
 
     const children = el.querySelectorAll(
-      ".reveal, .reveal-left, .reveal-right, .reveal-scale"
+      ".reveal, .reveal-left, .reveal-right, .reveal-scale",
     );
     if (children.length > 0) {
       children.forEach((child) => observer.observe(child));
@@ -145,8 +145,7 @@ export default function Home() {
                 id="about-heading"
                 className="reveal text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6"
               >
-                Hotel Pousada{" "}
-                <span className="gradient-text">Bambuzal</span>
+                Hotel Pousada <span className="gradient-text">Bambuzal</span>
               </h2>
               <p className="reveal delay-100 text-lg md:text-xl text-neutral-300 leading-relaxed mb-6">
                 São mais de{" "}
@@ -157,9 +156,9 @@ export default function Home() {
               </p>
               <p className="reveal delay-200 text-base text-neutral-400 leading-relaxed mb-8">
                 Localizado no encantador vilarejo do Sana, o Hotel Pousada
-                Bambuzal oferece uma experiência única onde as montanhas, o
-                rio cristalino e a exuberante vegetação se tornam parte da
-                sua estadia.
+                Bambuzal oferece uma experiência única onde as montanhas, o rio
+                cristalino e a exuberante vegetação se tornam parte da sua
+                estadia.
               </p>
 
               {/* Stats grid */}
@@ -197,13 +196,13 @@ export default function Home() {
 
             {/* Images column */}
             <div className="order-1 xl:order-2 grid grid-cols-2 gap-4 h-full">
-              <div className="reveal-left delay-100 relative rounded-2xl overflow-hidden h-64 md:h-80 xl:h-[420px] img-zoom shadow-card">
+              <div className="reveal-left delay-100 relative rounded-2xl overflow-hidden h-44 sm:h-56 md:h-80 xl:h-[420px] img-zoom shadow-card">
                 <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_13_11zon.webp?alt=media&token=c0945aa2-d8cd-4543-a70c-e4be145b323e"
+                  src="https://storage.googleapis.com/hp-bambuzal/about/1.jpg"
                   alt="Vista externa do Hotel Pousada Bambuzal"
                   fill
                   style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, (max-width: 1280px) 300px, 320px"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1280px) 45vw, 600px"
                 />
                 <div
                   className="absolute inset-0 pointer-events-none rounded-2xl"
@@ -214,13 +213,13 @@ export default function Home() {
                   aria-hidden="true"
                 />
               </div>
-              <div className="reveal-right delay-200 relative rounded-2xl overflow-hidden h-64 md:h-80 xl:h-[420px] mt-8 img-zoom shadow-card">
+              <div className="reveal-right delay-200 relative rounded-2xl overflow-hidden h-44 sm:h-56 md:h-80 xl:h-[420px] mt-6 sm:mt-8 img-zoom shadow-card">
                 <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/About%2Fext_3_11zon.webp?alt=media&token=1c5cbdec-289e-4a1f-a09a-518a9e8820b0"
+                  src="https://storage.googleapis.com/hp-bambuzal/about/2.jpg"
                   alt="Área verde do Hotel Pousada Bambuzal"
                   fill
                   style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, (max-width: 1280px) 300px, 320px"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1280px) 45vw, 600px"
                 />
                 <div
                   className="absolute inset-0 pointer-events-none rounded-2xl"
@@ -250,12 +249,11 @@ export default function Home() {
             id="features-heading"
             className="reveal text-3xl md:text-5xl font-bold text-white mb-4"
           >
-            Por que escolher o{" "}
-            <span className="gradient-text">Bambuzal?</span>
+            Por que escolher o <span className="gradient-text">Bambuzal?</span>
           </h2>
           <p className="reveal delay-100 text-neutral-400 text-base md:text-lg max-w-2xl mx-auto mb-14">
-            Uma experiência que combina a riqueza da natureza com o conforto
-            que você merece.
+            Uma experiência que combina a riqueza da natureza com o conforto que
+            você merece.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -273,7 +271,9 @@ export default function Home() {
                 <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors duration-300">
                   {title}
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">{desc}</p>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
@@ -321,7 +321,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
             {ACCOMMODATIONS.map(({ title, desc, href, srcImg }, i) => (
-              <div key={title} className={`reveal delay-${(i + 1) * 100} w-full max-w-[360px]`}>
+              <div
+                key={title}
+                className={`reveal delay-${(i + 1) * 100} w-full max-w-[360px]`}
+              >
                 <AccommodCard
                   title={title}
                   desc={desc}
@@ -368,9 +371,9 @@ export default function Home() {
               </h2>
               <p className="reveal delay-100 text-neutral-400 text-base md:text-lg leading-relaxed mb-8">
                 Aqui se encontra o quadro de todos os eventos que acontecem
-                durante o ano no nosso lugarzinho. Desde festivais de natureza
-                a celebrações íntimas, cada evento é planejado para criar
-                memórias únicas.
+                durante o ano no nosso lugarzinho. Desde festivais de natureza a
+                celebrações íntimas, cada evento é planejado para criar memórias
+                únicas.
               </p>
 
               <div className="reveal delay-200 grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -384,7 +387,10 @@ export default function Home() {
                     key={text}
                     className="flex items-center gap-3 p-3 rounded-xl bg-neutral-900/50 border border-white/5"
                   >
-                    <Icon className="w-5 h-5 text-orange-400 shrink-0" aria-hidden="true" />
+                    <Icon
+                      className="w-5 h-5 text-orange-400 shrink-0"
+                      aria-hidden="true"
+                    />
                     <span className="text-sm text-neutral-300">{text}</span>
                   </div>
                 ))}
@@ -417,7 +423,10 @@ export default function Home() {
                 />
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
-                    <CalendarDays className="w-8 h-8 text-orange-400" aria-hidden="true" />
+                    <CalendarDays
+                      className="w-8 h-8 text-orange-400"
+                      aria-hidden="true"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">
                     Agenda {currentYear}
@@ -452,8 +461,7 @@ export default function Home() {
             id="packages-heading"
             className="reveal text-3xl md:text-5xl font-bold text-white mb-4"
           >
-            Pacotes para{" "}
-            <span className="gradient-text">{currentYear}</span>
+            Pacotes para <span className="gradient-text">{currentYear}</span>
           </h2>
           <p className="reveal delay-100 text-neutral-400 text-base md:text-lg max-w-2xl mx-auto mb-14">
             Aqui se encontra o quadro de pacotes exclusivos que oferecemos
@@ -542,7 +550,7 @@ export default function Home() {
       {/* ─── Final CTA Banner ─── */}
       <section
         ref={ctaRef}
-        className="relative py-24 md:py-32 px-5 md:px-10 overflow-hidden"
+        className="relative py-16 sm:py-24 md:py-32 px-5 md:px-10 overflow-hidden"
         style={{
           background:
             "linear-gradient(135deg, #1a0a00 0%, #2d1200 30%, #1a0a00 70%, #000 100%)",
@@ -568,21 +576,17 @@ export default function Home() {
           </div>
           <h2
             id="cta-heading"
-            className="reveal text-4xl md:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
+            className="reveal text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
           >
-            Sua próxima{" "}
-            <span className="shimmer-text">escapada</span> começa aqui
+            Sua próxima <span className="shimmer-text">escapada</span> começa
+            aqui
           </h2>
           <p className="reveal delay-100 text-neutral-400 text-base md:text-lg max-w-xl mx-auto mb-10">
             Não espere mais para viver a experiência única do Bambuzal.
             Verifique a disponibilidade e faça sua reserva hoje mesmo.
           </p>
           <div className="reveal delay-200 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
               <button className="px-10 py-4 rounded-full font-bold text-base tracking-wider text-white btn-cta animate-pulse-glow">
                 <span>VERIFICAR DISPONIBILIDADE</span>
               </button>

@@ -20,7 +20,7 @@ export default function Acomodacoes() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
 
     const reveals = el.querySelectorAll(".reveal, .reveal-scale");
@@ -35,28 +35,35 @@ export default function Acomodacoes() {
       desc: "Suítes com Vista para o rio, uma ótima opção para se ouvir as águas do rio Sana. Ambiente aconchegante com decoração rústica e modernidade.",
       href: "/acomodacoes/simplesuit",
       srcImg:
-        "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/SuiteSimples%2Fsuite_simples_7_11zon.webp?alt=media&token=c43eb63c-d335-401f-bc1b-d73c791d368c",
+        "https://storage.googleapis.com/hp-bambuzal/acomod/suite-simples/home-cover.jpg",
     },
     {
       title: "Chalé Duplo",
       desc: "Chalé composto por garagem privativa, varanda com rede onde se pode desfrutar de uma paisagem deslumbrante das montanhas, piscinas e do Rio Sana.",
       href: "/acomodacoes/doublesuit",
       srcImg:
-        "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleDuplo%2F1_11zon.webp?alt=media&token=bc9ea4f1-78dd-4576-a814-f81ad1e3008d",
+        "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/home-cover.jpg",
     },
     {
       title: "Chalé Triplo",
       desc: "Chalé composto por garagem privativa, varanda com rede onde se pode desfrutar de uma paisagem deslumbrante. Além de um amplo espaço interno.",
       href: "/acomodacoes/triplesuit",
       srcImg:
-        "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleTriplo%2Fchale_triplo_11zon.webp?alt=media&token=2dc0e332-d048-4fcc-8e1e-c447fef02107",
+        "https://storage.googleapis.com/hp-bambuzal/acomod/chale-triplo/home-cover.jpg",
     },
     {
       title: "Chalé Família",
       desc: "Temos opções para quem ama viajar em família e que querem ficar juntinhos. Com dois quartos, nossos chalés família são perfeitos para acomodar todos com conforto.",
       href: "/acomodacoes/familysuit",
       srcImg:
-        "https://firebasestorage.googleapis.com/v0/b/hpbambuzal-6c4d1.appspot.com/o/ChaleFamilia%2Fchale_familia_4_11zon.webp?alt=media&token=261c1bd9-36d1-46ae-b02a-e7bd0eac98c6",
+        "https://storage.googleapis.com/hp-bambuzal/acomod/chale-familia/home-cover.jpg",
+    },
+    {
+      title: "Suíte Premium",
+      desc: "Suíte com hidromassagem, varanda privativa com rede e vista para o rio. O ambiente perfeito para relaxar e desfrutar da natureza ao máximo.",
+      href: "/acomodacoes/premiumsuite",
+      srcImg:
+        "https://storage.googleapis.com/hp-bambuzal/acomod/suite-premium/page-carousel1.jpg",
     },
   ];
 
