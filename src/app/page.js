@@ -70,7 +70,7 @@ const FEATURES = [
 const STATS = [
   { value: "16.000", unit: "m²", label: "de natureza preservada" },
   { value: "4", unit: "+", label: "tipos de acomodação" },
-  { value: "Rio", unit: "", label: "Sana às suas portas" },
+  { value: "Rio Sana", unit: "", label: "às suas portas" },
   { value: "100%", unit: "", label: "experiência autêntica" },
 ];
 
