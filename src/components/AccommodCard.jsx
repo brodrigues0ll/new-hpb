@@ -13,7 +13,7 @@ const CATEGORY_LABELS = {
 
 export const AccommodCard = ({ title, desc, href, srcImg }) => {
   const slug = href ? href.split("/").pop() : "";
-  const category = CATEGORY_LABELS[slug] || "Acomodação";
+  const category = CATEGORY_LABELS[slug] || "Suíte";
 
   return (
     <article className="group relative bg-neutral-900 rounded-2xl overflow-hidden card-hover shadow-card w-full max-w-[360px]">
