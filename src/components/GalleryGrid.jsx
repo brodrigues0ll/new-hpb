@@ -1,33 +1,50 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
-/* ── Individual gallery cell ──────────────────────────────── */
+/*
+  Optimization strategy for 5MB+ source images:
+  - Grid thumbnails:  next/image with fill + sizes → Next.js serves ~50-150 KB per thumb
+  - Lightbox:         next/image at larger size     → Next.js serves ~400-800 KB
+  - minimumCacheTTL=1yr in next.config.js caches every processed variant server-side
+  - loading="lazy" → browser only downloads images as they enter the viewport
+  - Only the first 8 cells use loading="eager" (above the fold on any device)
+*/
+
+/* ── Individual thumbnail cell ───────────────────────────── */
 function GalleryItem({ src, index, onOpen }) {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div
       className="relative aspect-square overflow-hidden rounded-xl cursor-pointer group bg-[#262626]"
-      onClick={() => loaded && onOpen(index)}
+      onClick={() => onOpen(index)}
     >
-      {/* Skeleton shimmer — visible until image is ready */}
+      {/* Skeleton shimmer until the optimized thumbnail arrives */}
       {!loaded && <div className="absolute inset-0 skeleton rounded-xl" />}
 
-      {/* Image — fades in on load */}
-      <img
+      <Image
         src={src}
         alt={`Foto da galeria ${index + 1}`}
-        loading={index < 16 ? "eager" : "lazy"}
-        decoding="async"
+        fill
+        /*
+          sizes tells the browser (and Next.js optimizer) the actual rendered width:
+          mobile ≈ 50vw, tablet ≈ 33vw, desktop ≈ 25vw
+          → Next.js picks the closest breakpoint from imageSizes/deviceSizes
+          → 5 MB original becomes ~50-150 KB optimized thumbnail
+        */
+        sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+        quality={72}
+        loading={index < 8 ? "eager" : "lazy"}
         onLoad={() => setLoaded(true)}
-        className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+        className={`object-cover transition-all duration-500 group-hover:scale-105 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
       />
 
-      {/* Hover overlay — only when loaded */}
+      {/* Hover overlay */}
       {loaded && (
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300 flex items-center justify-center">
           <ZoomIn className="w-7 h-7 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
@@ -52,10 +69,8 @@ export default function GalleryGrid({ images }) {
   );
   const close = () => setLightbox(null);
 
-  // Reset lightbox loaded state on slide change
-  useEffect(() => {
-    setLightboxLoaded(false);
-  }, [lightbox]);
+  // Reset load state on each slide change
+  useEffect(() => setLightboxLoaded(false), [lightbox]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -69,17 +84,15 @@ export default function GalleryGrid({ images }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightbox, prev, next]);
 
-  // Prevent body scroll when lightbox is open
+  // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = lightbox !== null ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [lightbox]);
 
   return (
     <>
-      {/* Fixed grid — positions never shift regardless of load order */}
+      {/* Fixed grid — no layout shift because every cell is aspect-square */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-3">
         {images.map((src, index) => (
           <GalleryItem
@@ -91,7 +104,7 @@ export default function GalleryGrid({ images }) {
         ))}
       </div>
 
-      {/* Lightbox */}
+      {/* ── Lightbox ─────────────────────────────────────────── */}
       {lightbox !== null && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center"
@@ -123,21 +136,31 @@ export default function GalleryGrid({ images }) {
 
           {/* Image area */}
           <div
-            className="relative max-w-[90vw] max-h-[88vh] flex items-center justify-center"
+            className="relative max-w-[92vw] max-h-[90vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Skeleton while lightbox image loads */}
+            {/* Skeleton while the high-res version loads */}
             {!lightboxLoaded && (
-              <div className="w-[80vw] max-w-[900px] aspect-video skeleton rounded-xl" />
+              <div className="w-[80vw] max-w-[960px] aspect-video skeleton rounded-xl" />
             )}
-            <img
+
+            {/*
+              Lightbox image: next/image at quality=88, sizes=90vw
+              → 5 MB original becomes ~400-800 KB at screen resolution
+              → Served from Next.js cache after first view
+            */}
+            <Image
               key={lightbox}
               src={images[lightbox]}
               alt={`Foto ${lightbox + 1}`}
+              width={1920}
+              height={1280}
+              sizes="92vw"
+              quality={88}
               loading="eager"
-              decoding="sync"
+              priority
               onLoad={() => setLightboxLoaded(true)}
-              className={`object-contain max-h-[88vh] max-w-[90vw] w-auto rounded-xl shadow-2xl transition-opacity duration-300 ${
+              className={`object-contain max-h-[90vh] max-w-[92vw] w-auto rounded-xl shadow-2xl transition-opacity duration-400 ${
                 lightboxLoaded ? "opacity-100" : "opacity-0 absolute"
               }`}
             />
