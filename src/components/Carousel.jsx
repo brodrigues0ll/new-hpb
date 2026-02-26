@@ -18,21 +18,17 @@ export const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const imagesArray = CAROUSEL_IMAGES;
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [titleVisible, setTitleVisible] = useState(true);
   const intervalRef = useRef(null);
 
   const goToSlide = useCallback(
     (index) => {
       if (isTransitioning || imagesArray.length === 0) return;
       setIsTransitioning(true);
-      setTitleVisible(false);
-
       setTimeout(() => {
         setCurrentImageIndex(
           (index + imagesArray.length) % imagesArray.length
         );
         setIsTransitioning(false);
-        setTimeout(() => setTitleVisible(true), 100);
       }, 400);
     },
     [isTransitioning, imagesArray.length]
@@ -123,14 +119,7 @@ export const Carousel = () => {
         {/* Content */}
         <div className="absolute inset-0 z-20 flex flex-col justify-end pb-20 sm:pb-28 md:pb-36 px-5 sm:px-8 md:px-12 xl:px-24">
           {/* Location badge */}
-          <div
-            className={`flex items-center gap-2 mb-5 transition-all duration-700 ${
-              titleVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "0ms" }}
-          >
+          <div className="flex items-center gap-2 mb-5">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass text-orange-400 text-xs font-semibold tracking-widest border border-orange-500/30">
               <MapPin className="w-3 h-3" aria-hidden="true" />
               SANA, MACAÉ — RJ
@@ -138,40 +127,19 @@ export const Carousel = () => {
           </div>
 
           {/* Main heading */}
-          <h1
-            className={`text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-bold text-white leading-none tracking-tight mb-4 max-w-3xl transition-all duration-700 ${
-              titleVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-            style={{ transitionDelay: "100ms" }}
-          >
+          <h1 className="text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-bold text-white leading-none tracking-tight mb-4 max-w-3xl">
             Lugar de
             <span className="gradient-text block">Paz</span>
           </h1>
 
           {/* Subtitle */}
-          <p
-            className={`text-sm sm:text-base md:text-xl text-neutral-300 max-w-xs sm:max-w-sm md:max-w-xl leading-relaxed mb-6 sm:mb-8 transition-all duration-700 ${
-              titleVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-            style={{ transitionDelay: "220ms" }}
-          >
+          <p className="text-sm sm:text-base md:text-xl text-neutral-300 max-w-xs sm:max-w-sm md:max-w-xl leading-relaxed mb-6 sm:mb-8">
             Um paraíso em meio às montanhas da região serrana de Macaé para
             você desfrutar da natureza com requinte e qualidade.
           </p>
 
           {/* CTA Button */}
-          <div
-            className={`transition-all duration-700 ${
-              titleVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-            style={{ transitionDelay: "340ms" }}
-          >
+          <div>
             <a
               href={BOOKING_URL}
               target="_blank"
