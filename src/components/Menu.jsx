@@ -8,7 +8,7 @@ import { MapPin, Phone, Instagram, Facebook } from "lucide-react";
 const NAV_LINKS = [
   { label: "INÍCIO", href: "/" },
   { label: "ACOMODAÇÕES", href: "/acomodacoes" },
-  { label: "GALERIA", href: null },
+  { label: "GALERIA", href: "/galeria" },
   { label: "CONTATO", href: "/contato" },
 ];
 
@@ -45,7 +45,9 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
   // Prevent body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   if (!menuOpen) return null;
@@ -138,7 +140,10 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
           </div>
           <div className="flex items-center gap-2">
             <Phone className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-            <a href="tel:+5522988112400" className="hover:text-orange-400 transition-colors">
+            <a
+              href="tel:+5522988112400"
+              className="hover:text-orange-400 transition-colors"
+            >
               (22) 9 8811-2400
             </a>
           </div>
