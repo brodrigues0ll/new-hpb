@@ -5,17 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Carousel } from "@/components/Carousel";
 import { AccommodCard } from "@/components/AccommodCard";
-import {
-  TreePine,
-  Waves,
-  Star,
-  MapPin,
-  CalendarDays,
-  ArrowRight,
-  BadgeCheck,
-  Users,
-  Sunset,
-} from "lucide-react";
+import { EventsSection } from "@/components/(events-section)/EventsSection";
+import { TreePine, Waves, Star, MapPin, ArrowRight } from "lucide-react";
 
 const BOOKING_URL =
   "https://book.securebookings.net/roomrate?id=c4dd3ad1-0057-1672770166-46f7-a98b-44ec5a1f6793&lang=br";
@@ -113,7 +104,6 @@ export default function Home() {
   const aboutRef = useScrollReveal();
   const featuresRef = useScrollReveal();
   const accommodRef = useScrollReveal();
-  const eventsRef = useScrollReveal();
   const packsRef = useScrollReveal();
   const ctaRef = useScrollReveal();
 
@@ -338,114 +328,7 @@ export default function Home() {
       </section>
 
       {/* ─── Events Section ─── */}
-      <section
-        ref={eventsRef}
-        className="relative py-20 md:py-28 px-5 md:px-10 xl:px-20 overflow-hidden bg-[#212121]"
-        aria-labelledby="events-heading"
-      >
-        {/* Background accent */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 80% 50%, rgba(234,88,12,0.06) 0%, transparent 70%)",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="max-w-[1400px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="reveal flex items-center gap-3 mb-4">
-                <div className="section-divider-left section-divider" />
-                <span className="text-xs font-bold tracking-[0.25em] text-orange-500 uppercase">
-                  Eventos
-                </span>
-              </div>
-              <h2
-                id="events-heading"
-                className="reveal text-3xl md:text-5xl font-bold text-white leading-tight mb-6"
-              >
-                Celebre momentos{" "}
-                <span className="gradient-text">especiais</span> aqui
-              </h2>
-              <p className="reveal delay-100 text-neutral-400 text-base md:text-lg leading-relaxed mb-8">
-                Aqui se encontra o quadro de todos os eventos que acontecem
-                durante o ano no nosso lugarzinho. Desde festivais de natureza a
-                celebrações íntimas, cada evento é planejado para criar memórias
-                únicas.
-              </p>
-
-              <div className="reveal delay-200 grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {[
-                  { icon: CalendarDays, text: "Festivais sazonais" },
-                  { icon: Users, text: "Eventos corporativos" },
-                  { icon: Star, text: "Celebrações privadas" },
-                  { icon: Sunset, text: "Retiros de bem-estar" },
-                ].map(({ icon: Icon, text }) => (
-                  <div
-                    key={text}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-neutral-900/50 border border-white/5"
-                  >
-                    <Icon
-                      className="w-5 h-5 text-orange-400 shrink-0"
-                      aria-hidden="true"
-                    />
-                    <span className="text-sm text-neutral-300">{text}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="reveal delay-300">
-                <Link
-                  href="/contato"
-                  className="
-                    inline-flex items-center gap-2 px-8 py-3.5 rounded-full
-                    font-bold text-sm tracking-wide text-white btn-cta
-                  "
-                >
-                  <span>Consultar Disponibilidade</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Decorative card */}
-            <div className="reveal-right delay-200">
-              <div className="relative rounded-3xl overflow-hidden bg-neutral-900/60 border border-white/8 p-8 md:p-10">
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at 30% 70%, rgba(234,88,12,0.08) 0%, transparent 70%)",
-                  }}
-                  aria-hidden="true"
-                />
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
-                    <CalendarDays
-                      className="w-8 h-8 text-orange-400"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
-                    Agenda {currentYear}
-                  </h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                    Nosso calendário de eventos está sendo preparado com
-                    experiências únicas para você e sua família. Entre em
-                    contato para saber mais sobre as próximas atrações.
-                  </p>
-                  <div className="flex items-center gap-2 text-orange-400 text-sm font-bold">
-                    <BadgeCheck className="w-4 h-4" aria-hidden="true" />
-                    <span>Eventos exclusivos para hóspedes</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EventsSection />
 
       {/* ─── Packages Section ─── */}
       <section

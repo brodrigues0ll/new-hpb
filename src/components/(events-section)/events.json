@@ -1,0 +1,55 @@
+[
+  {
+    "month": "Fevereiro",
+    "title": "Carnaval",
+    "startDate": "2026-02-13",
+    "endDate": "2026-02-18",
+    "description": "Carnaval com café da manhã especial todos os dias.",
+    "highlights": ["Café da manhã especial"]
+  },
+  {
+    "month": "Março",
+    "title": "Festa Verão & Flores",
+    "subtitle": "Especial Dia das Mulheres",
+    "startDate": "2026-03-06",
+    "endDate": "2026-03-08",
+    "description": "Evento especial em comemoração ao Dia das Mulheres, com café da manhã especial.",
+    "highlights": [
+      "Café da manhã especial",
+      "Música ao vivo no sábado",
+      "Jantar incluso no sábado"
+    ]
+  },
+  {
+    "month": "Abril",
+    "title": "Páscoa",
+    "startDate": "2026-04-03",
+    "endDate": "2026-04-05",
+    "description": "Pacote especial de Páscoa.",
+    "highlights": []
+  },
+  {
+    "month": "Abril",
+    "title": "Feriado de Tiradentes",
+    "startDate": "2026-04-17",
+    "endDate": "2026-04-21",
+    "description": "Feriado prolongado de Tiradentes.",
+    "highlights": []
+  },
+  {
+    "month": "Maio",
+    "title": "Dia do Trabalho",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-03",
+    "description": "Pacote especial para o feriado do Dia do Trabalho.",
+    "highlights": []
+  },
+  {
+    "month": "Junho",
+    "title": "Dia dos Namorados",
+    "startDate": "2026-06-12",
+    "endDate": "2026-06-14",
+    "description": "Fim de semana romântico para o Dia dos Namorados.",
+    "highlights": ["Música ao vivo no sábado à noite", "Jantar especial"]
+  }
+]
