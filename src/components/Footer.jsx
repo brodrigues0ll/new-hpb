@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Início", href: "/" },
   { label: "Acomodações", href: "/acomodacoes" },
   { label: "Contato", href: "/contato" },
+  { label: "Galeria", href: "/galeria" },
 ];
 
 export const Footer = () => {
@@ -19,8 +20,7 @@ export const Footer = () => {
     <footer
       className="relative overflow-hidden"
       style={{
-        background:
-          "linear-gradient(180deg, #161616 0%, #0d0d0d 100%)",
+        background: "linear-gradient(180deg, #161616 0%, #0d0d0d 100%)",
         borderTop: "1px solid rgba(255,255,255,0.06)",
       }}
       aria-label="Rodapé do site"
@@ -102,7 +102,10 @@ export const Footer = () => {
             <h3 className="text-xs font-bold tracking-[0.2em] text-orange-500 uppercase mb-5">
               Navegação
             </h3>
-            <nav className="flex flex-col gap-3" aria-label="Links de navegação">
+            <nav
+              className="flex flex-col gap-3"
+              aria-label="Links de navegação"
+            >
               {NAV_LINKS.map(({ label, href }) => (
                 <Link
                   key={label}
@@ -112,9 +115,6 @@ export const Footer = () => {
                   {label}
                 </Link>
               ))}
-              <span className="text-sm text-neutral-600 cursor-not-allowed w-fit mx-auto md:mx-0">
-                Galeria
-              </span>
             </nav>
           </div>
 
@@ -125,7 +125,10 @@ export const Footer = () => {
             </h3>
             <div className="flex flex-col gap-3">
               <div className="flex items-start gap-2 justify-center md:justify-start">
-                <MapPin className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" aria-hidden="true" />
+                <MapPin
+                  className="w-4 h-4 text-orange-500 shrink-0 mt-0.5"
+                  aria-hidden="true"
+                />
                 <p className="text-sm text-neutral-400 leading-relaxed">
                   Estrada do Sana, N° 2000
                   <br />
@@ -162,7 +165,10 @@ export const Footer = () => {
                 className="flex items-center gap-2 justify-center md:justify-start text-sm text-neutral-400 hover:text-orange-400 transition-colors duration-300 group"
                 aria-label="Ligar para o hotel"
               >
-                <Phone className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform duration-200" aria-hidden="true" />
+                <Phone
+                  className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform duration-200"
+                  aria-hidden="true"
+                />
                 (22) 9 8811-2400
               </a>
               <a
@@ -172,7 +178,10 @@ export const Footer = () => {
                 className="flex items-center gap-2 justify-center md:justify-start text-sm text-neutral-400 hover:text-green-400 transition-colors duration-300 group"
                 aria-label="Enviar mensagem pelo WhatsApp"
               >
-                <FaWhatsapp className="text-orange-500 group-hover:scale-110 transition-transform duration-200" aria-hidden="true" />
+                <FaWhatsapp
+                  className="text-orange-500 group-hover:scale-110 transition-transform duration-200"
+                  aria-hidden="true"
+                />
                 WhatsApp
               </a>
               <a
@@ -180,8 +189,13 @@ export const Footer = () => {
                 className="flex items-center gap-2 justify-center md:justify-start text-sm text-neutral-400 hover:text-orange-400 transition-colors duration-300 group"
                 aria-label="Enviar email para o hotel"
               >
-                <Mail className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform duration-200" aria-hidden="true" />
-                <span className="break-all">hotelpousadabambuzal@gmail.com</span>
+                <Mail
+                  className="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform duration-200"
+                  aria-hidden="true"
+                />
+                <span className="break-all">
+                  hotelpousadabambuzal@gmail.com
+                </span>
               </a>
             </div>
           </div>
@@ -200,11 +214,10 @@ export const Footer = () => {
         {/* Copyright row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-600">
           <p>
-            &copy; {currentYear} Hotel Pousada Bambuzal. Todos os direitos reservados.
+            &copy; {currentYear} Hotel Pousada Bambuzal. Todos os direitos
+            reservados.
           </p>
-          <p className="text-neutral-700">
-            Sana, Macaé — RJ, Brasil
-          </p>
+          <p className="text-neutral-700">Sana, Macaé — RJ, Brasil</p>
         </div>
       </div>
     </footer>
