@@ -30,7 +30,7 @@ function getUpcomingEvents() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   return events.filter(
-    (event) => new Date(event.endDate + "T23:59:59") >= today
+    (event) => new Date(event.endDate + "T23:59:59") >= today,
   );
 }
 
@@ -44,12 +44,14 @@ export const EventsSection = () => {
     const observer = new IntersectionObserver(
       (entries) =>
         entries.forEach(
-          (entry) => entry.isIntersecting && entry.target.classList.add("visible")
+          (entry) =>
+            entry.isIntersecting && entry.target.classList.add("visible"),
         ),
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
-    el.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale")
-      .forEach((child) => observer.observe(child));
+    el.querySelectorAll(
+      ".reveal, .reveal-left, .reveal-right, .reveal-scale",
+    ).forEach((child) => observer.observe(child));
     return () => observer.disconnect();
   }, []);
 
@@ -86,8 +88,8 @@ export const EventsSection = () => {
               id="events-heading"
               className="reveal text-3xl md:text-5xl font-bold text-white leading-tight max-w-xl"
             >
-              Celebre momentos{" "}
-              <span className="gradient-text">especiais</span> aqui
+              Celebre momentos <span className="gradient-text">especiais</span>{" "}
+              aqui
             </h2>
             <div className="reveal delay-100 shrink-0">
               <Link
@@ -104,7 +106,10 @@ export const EventsSection = () => {
         {/* Event cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {upcomingEvents.map((event, i) => {
-            const { days, period } = formatDateParts(event.startDate, event.endDate);
+            const { days, period } = formatDateParts(
+              event.startDate,
+              event.endDate,
+            );
             const revealClass = i % 2 === 1 ? "reveal-right" : "reveal";
             const delayClass = `delay-${Math.min((i % 3) * 100, 300)}`;
 
@@ -116,7 +121,8 @@ export const EventsSection = () => {
                 <div
                   className="h-full rounded-2xl border border-white/8 overflow-hidden flex flex-col group hover:border-orange-500/25 transition-all duration-300"
                   style={{
-                    background: "linear-gradient(160deg, #1e1e1e 0%, #181818 100%)",
+                    background:
+                      "linear-gradient(160deg, #1e1e1e 0%, #181818 100%)",
                     boxShadow: "0 4px 24px rgba(0,0,0,0.35)",
                   }}
                 >
