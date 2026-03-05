@@ -5,7 +5,7 @@ export const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-[1600px] mt-24">{children}</main>
+      <main className="mx-auto max-w-[1600px] mt-20 md:mt-24">{children}</main>
       <Footer />
     </>
   );

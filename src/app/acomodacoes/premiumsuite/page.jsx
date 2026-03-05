@@ -2,19 +2,19 @@ import { TbAirConditioningDisabled } from "react-icons/tb";
 import { PiTelevisionSimple } from "react-icons/pi";
 import { FaWifi } from "react-icons/fa6";
 import { LuRefrigerator } from "react-icons/lu";
-import { CalendarCheck, Car, Palmtree, Waves } from "lucide-react";
+import { CalendarCheck, Bath, BedDouble, Mountain, Star } from "lucide-react";
 import AccommodationCarousel from "@/components/AccommodationCarousel";
 
 const IMAGES = [
-  "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/page-carousel1.jpg",
-  "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/page-carousel2.jpg",
-  "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/page-carousel3.jpg",
+  "https://storage.googleapis.com/hp-bambuzal/acomod/suite-premium/page-carousel1.jpg",
+  "https://storage.googleapis.com/hp-bambuzal/acomod/suite-premium/page-carousel2.jpg",
+  "https://storage.googleapis.com/hp-bambuzal/acomod/suite-premium/page-carousel3.jpg",
 ];
 
 export const metadata = {
-  title: "Chalé Duplo | Hotel Pousada Bambuzal",
+  title: "Suíte Premium | Hotel Pousada Bambuzal",
   description:
-    "Chalé Duplo com garagem privativa e varanda no Hotel Pousada Bambuzal",
+    "Suíte Premium com banheira de hidromassagem e vista panorâmica no Hotel Pousada Bambuzal",
 };
 
 const amenities = [
@@ -25,36 +25,38 @@ const amenities = [
 ];
 
 const highlights = [
-  { icon: Car, label: "Garagem Privativa" },
-  { icon: Palmtree, label: "Varanda com Rede" },
-  { icon: Waves, label: "Vista para Piscinas e Rio Sana" },
+  { icon: Bath, label: "Banheira de Hidromassagem" },
+  { icon: BedDouble, label: "Cama King Size" },
+  { icon: Mountain, label: "Vista Panorâmica das Montanhas" },
 ];
 
-export default function DoubleSuit() {
+export default function PremiumSuit() {
   return (
     <main className="min-h-screen bg-[#212121]">
       <AccommodationCarousel
         images={IMAGES}
-        title="Chalé Duplo"
-        badgeText="CHALÉ"
+        title="Suíte Premium"
+        badgeText="PREMIUM"
       />
 
       {/* Content */}
       <section className="px-4 sm:px-6 md:px-10 xl:px-20 py-10 sm:py-14 md:py-20">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 xl:gap-20">
+
             {/* Left: Description + Amenities */}
             <div className="flex flex-col gap-8 animate-fade-in-up delay-200">
               {/* Description */}
               <div>
                 <div className="section-divider-left mb-5" />
                 <p className="text-neutral-300 text-base md:text-lg leading-relaxed">
-                  O Chalé Duplo é a escolha ideal para casais que buscam
-                  privacidade e contato com a natureza. Com garagem privativa
-                  exclusiva, você chega com total conforto. A varanda com rede é
-                  o lugar perfeito para relaxar contemplando as montanhas, as
-                  piscinas e as águas do Rio Sana. O chuveiro aquecido por
-                  energia solar completa a experiência sustentável.
+                  A Suíte Premium é a experiência mais sofisticada do Bambuzal,
+                  pensada para quem deseja o melhor em cada detalhe. Desfrute de
+                  uma banheira de hidromassagem exclusiva, cama king size e uma
+                  vista panorâmica privilegiada das montanhas do Sana. Um
+                  refúgio de luxo cercado pela natureza, onde o silêncio, o
+                  conforto e a elegância se encontram para criar momentos
+                  verdadeiramente inesquecíveis.
                 </p>
                 <div className="section-divider-left mt-5" />
               </div>
@@ -68,10 +70,7 @@ export default function DoubleSuit() {
                   {highlights.map(({ icon: Icon, label }) => (
                     <div key={label} className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                        <Icon
-                          className="w-4 h-4 text-orange-400"
-                          aria-hidden="true"
-                        />
+                        <Icon className="w-4 h-4 text-orange-400" aria-hidden="true" />
                       </div>
                       <span className="text-sm text-neutral-300">{label}</span>
                     </div>
@@ -90,13 +89,28 @@ export default function DoubleSuit() {
                       key={label}
                       className="flex items-center gap-3 px-4 py-3 rounded-xl glass border border-white/6 card-hover"
                     >
-                      <Icon
-                        className="h-5 w-5 text-orange-400 shrink-0"
-                        aria-hidden="true"
-                      />
+                      <Icon className="h-5 w-5 text-orange-400 shrink-0" aria-hidden="true" />
                       <span className="text-sm text-neutral-300">{label}</span>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* Premium note */}
+              <div
+                className="rounded-2xl p-5 border border-orange-500/20"
+                style={{
+                  background: "linear-gradient(135deg, rgba(234,88,12,0.07) 0%, rgba(212,169,70,0.05) 100%)",
+                }}
+              >
+                <div className="flex items-start gap-3">
+                  <Star className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" aria-hidden="true" />
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    <span className="text-orange-400 font-semibold">A melhor experiência do Bambuzal.</span>{" "}
+                    Nossa Suíte Premium combina o charme rústico da serra com
+                    acabamentos de alto padrão, oferecendo o máximo em conforto
+                    e privacidade para uma estadia verdadeiramente especial.
+                  </p>
                 </div>
               </div>
             </div>
@@ -106,23 +120,20 @@ export default function DoubleSuit() {
               <div
                 className="rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col gap-5 sm:gap-6 lg:sticky lg:top-32 border border-white/8"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #1e1e1e 0%, #161616 100%)",
+                  background: "linear-gradient(135deg, #1e1e1e 0%, #161616 100%)",
                   boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
                 }}
               >
                 {/* Top accent line */}
                 <div
                   className="h-0.5 w-16 rounded-full"
-                  style={{
-                    background: "linear-gradient(90deg, #ea580c, #d4a946)",
-                  }}
+                  style={{ background: "linear-gradient(90deg, #ea580c, #d4a946)" }}
                   aria-hidden="true"
                 />
 
                 <div>
                   <h2 className="text-2xl font-bold text-white mb-1">
-                    Reserve seu Chalé
+                    Reserve sua Suíte Premium
                   </h2>
                   <p className="text-sm text-neutral-500">
                     Disponibilidade sujeita a confirmação
@@ -144,7 +155,15 @@ export default function DoubleSuit() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
-                    Garagem privativa inclusa
+                    Banheira de hidromassagem
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
+                    Cama king size
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
+                    Vista panorâmica das montanhas
                   </li>
                 </ul>
 
@@ -153,7 +172,7 @@ export default function DoubleSuit() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"
-                  aria-label="Verificar disponibilidade do Chalé Duplo"
+                  aria-label="Verificar disponibilidade da Suíte Premium"
                 >
                   <button className="w-full py-4 px-6 rounded-full font-bold text-sm tracking-wider text-white btn-cta animate-pulse-glow flex items-center justify-center gap-2">
                     <span>VERIFICAR DISPONIBILIDADE</span>
@@ -166,6 +185,7 @@ export default function DoubleSuit() {
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
