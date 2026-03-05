@@ -12,8 +12,62 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Suíte Simples | Hotel Pousada Bambuzal",
-  description: "Suítes com Vista para o rio Sana no Hotel Pousada Bambuzal",
+  title: "Suíte Simples",
+  description:
+    "Suíte com vista direta para o Rio Sana no Hotel Pousada Bambuzal em Sana, Macaé - RJ. Ambiente aconchegante com chuveiro de energia solar, ar condicionado, TV a cabo, Wi-Fi gratuito e frigobar. Café da manhã incluso.",
+  alternates: {
+    canonical: "/acomodacoes/simplesuit",
+  },
+  openGraph: {
+    title: "Suíte Simples — Hotel Pousada Bambuzal",
+    description:
+      "Suíte com vista direta para o Rio Sana em Sana, Macaé - RJ. Acorde ao som da natureza com todo o conforto.",
+    url: "https://www.hotelpousadabambuzal.com/acomodacoes/simplesuit",
+    images: [
+      {
+        url: "https://storage.googleapis.com/hp-bambuzal/acomod/suite-simples/page-carousel1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Suíte Simples com vista para o Rio Sana — Hotel Pousada Bambuzal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      "https://storage.googleapis.com/hp-bambuzal/acomod/suite-simples/page-carousel1.jpg",
+    ],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Início", item: "https://www.hotelpousadabambuzal.com/" },
+        { "@type": "ListItem", position: 2, name: "Acomodações", item: "https://www.hotelpousadabambuzal.com/acomodacoes" },
+        { "@type": "ListItem", position: 3, name: "Suíte Simples", item: "https://www.hotelpousadabambuzal.com/acomodacoes/simplesuit" },
+      ],
+    },
+    {
+      "@type": "HotelRoom",
+      name: "Suíte Simples",
+      description: "Suíte com vista direta para o Rio Sana. Ambiente aconchegante com chuveiro de energia solar, ar condicionado, TV a cabo, Wi-Fi gratuito e frigobar.",
+      url: "https://www.hotelpousadabambuzal.com/acomodacoes/simplesuit",
+      image: "https://storage.googleapis.com/hp-bambuzal/acomod/suite-simples/page-carousel1.jpg",
+      containedInPlace: { "@id": "https://www.hotelpousadabambuzal.com/#lodging" },
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Ar Condicionado", value: true },
+        { "@type": "LocationFeatureSpecification", name: "TV a Cabo", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Wi-Fi Gratuito", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Frigobar", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Vista para o Rio Sana", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Energia Solar", value: true },
+      ],
+    },
+  ],
 };
 
 const amenities = [
@@ -32,6 +86,10 @@ const highlights = [
 export default function SimpleSuit() {
   return (
     <main className="min-h-screen bg-[#212121]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <AccommodationCarousel
         images={IMAGES}
         title="Suíte Simples"

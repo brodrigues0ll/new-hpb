@@ -12,9 +12,63 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Suíte Premium | Hotel Pousada Bambuzal",
+  title: "Suíte Premium",
   description:
-    "Suíte Premium com banheira de hidromassagem e vista panorâmica no Hotel Pousada Bambuzal",
+    "Suíte Premium com banheira de hidromassagem, cama king size e vista panorâmica das montanhas no Hotel Pousada Bambuzal em Sana, Macaé - RJ. A experiência mais sofisticada e exclusiva do Bambuzal.",
+  alternates: {
+    canonical: "/acomodacoes/premiumsuite",
+  },
+  openGraph: {
+    title: "Suíte Premium — Hotel Pousada Bambuzal",
+    description:
+      "Suíte com hidromassagem, cama king size e vista panorâmica das montanhas em Sana, Macaé - RJ. Luxo e natureza.",
+    url: "https://www.hotelpousadabambuzal.com/acomodacoes/premiumsuite",
+    images: [
+      {
+        url: "https://storage.googleapis.com/hp-bambuzal/acomod/suite-premium/page-carousel1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Suíte Premium com hidromassagem — Hotel Pousada Bambuzal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      "https://storage.googleapis.com/hp-bambuzal/acomod/suite-premium/page-carousel1.jpg",
+    ],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Início", item: "https://www.hotelpousadabambuzal.com/" },
+        { "@type": "ListItem", position: 2, name: "Acomodações", item: "https://www.hotelpousadabambuzal.com/acomodacoes" },
+        { "@type": "ListItem", position: 3, name: "Suíte Premium", item: "https://www.hotelpousadabambuzal.com/acomodacoes/premiumsuite" },
+      ],
+    },
+    {
+      "@type": "HotelRoom",
+      name: "Suíte Premium",
+      description: "Suíte de luxo com banheira de hidromassagem, cama king size e vista panorâmica das montanhas. A experiência mais sofisticada do Hotel Pousada Bambuzal.",
+      url: "https://www.hotelpousadabambuzal.com/acomodacoes/premiumsuite",
+      image: "https://storage.googleapis.com/hp-bambuzal/acomod/suite-premium/page-carousel1.jpg",
+      containedInPlace: { "@id": "https://www.hotelpousadabambuzal.com/#lodging" },
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Ar Condicionado", value: true },
+        { "@type": "LocationFeatureSpecification", name: "TV a Cabo", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Wi-Fi Gratuito", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Frigobar", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Banheira de Hidromassagem", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Cama King Size", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Vista Panorâmica das Montanhas", value: true },
+      ],
+    },
+  ],
 };
 
 const amenities = [

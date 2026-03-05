@@ -12,9 +12,62 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Chalé Duplo | Hotel Pousada Bambuzal",
+  title: "Chalé Duplo",
   description:
-    "Chalé Duplo com garagem privativa e varanda no Hotel Pousada Bambuzal",
+    "Chalé Duplo com garagem privativa, varanda com rede e vista para o Rio Sana no Hotel Pousada Bambuzal em Sana, Macaé - RJ. Ideal para casais em busca de natureza, privacidade e conforto.",
+  alternates: {
+    canonical: "/acomodacoes/doublesuit",
+  },
+  openGraph: {
+    title: "Chalé Duplo — Hotel Pousada Bambuzal",
+    description:
+      "Chalé com garagem privativa, varanda com rede e vista para o Rio Sana em Sana, Macaé - RJ. Perfeito para casais.",
+    url: "https://www.hotelpousadabambuzal.com/acomodacoes/doublesuit",
+    images: [
+      {
+        url: "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/page-carousel1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Chalé Duplo com varanda — Hotel Pousada Bambuzal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/page-carousel1.jpg",
+    ],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Início", item: "https://www.hotelpousadabambuzal.com/" },
+        { "@type": "ListItem", position: 2, name: "Acomodações", item: "https://www.hotelpousadabambuzal.com/acomodacoes" },
+        { "@type": "ListItem", position: 3, name: "Chalé Duplo", item: "https://www.hotelpousadabambuzal.com/acomodacoes/doublesuit" },
+      ],
+    },
+    {
+      "@type": "HotelRoom",
+      name: "Chalé Duplo",
+      description: "Chalé com garagem privativa, varanda com rede e vista para o Rio Sana e as montanhas. Ideal para casais.",
+      url: "https://www.hotelpousadabambuzal.com/acomodacoes/doublesuit",
+      image: "https://storage.googleapis.com/hp-bambuzal/acomod/chale-duplo/page-carousel1.jpg",
+      containedInPlace: { "@id": "https://www.hotelpousadabambuzal.com/#lodging" },
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Ar Condicionado", value: true },
+        { "@type": "LocationFeatureSpecification", name: "TV a Cabo", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Wi-Fi Gratuito", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Frigobar", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Garagem Privativa", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Varanda com Rede", value: true },
+      ],
+    },
+  ],
 };
 
 const amenities = [
