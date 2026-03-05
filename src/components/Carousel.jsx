@@ -14,6 +14,13 @@ const CAROUSEL_IMAGES = [
   "https://storage.googleapis.com/hp-bambuzal/carousel/4.jpg",
 ];
 
+const CAROUSEL_ALTS = [
+  "Vista panorâmica do Hotel Pousada Bambuzal às margens do Rio Sana em Sana, Macaé - RJ",
+  "Área verde preservada do Hotel Pousada Bambuzal com 16.000 m² de natureza na Serra de Macaé",
+  "Chalés do Hotel Pousada Bambuzal entre as montanhas e a natureza do Sana, Macaé - RJ",
+  "Rio Sana cristalino às portas do Hotel Pousada Bambuzal em Sana, Macaé - RJ",
+];
+
 export const Carousel = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const imagesArray = CAROUSEL_IMAGES;
@@ -81,7 +88,7 @@ export const Carousel = () => {
           >
             <Image
               src={imageUrl}
-              alt={`Vista do Hotel Pousada Bambuzal - imagem ${index + 1}`}
+              alt={CAROUSEL_ALTS[index] ?? `Vista do Hotel Pousada Bambuzal — imagem ${index + 1}`}
               fill
               priority={index === 0}
               sizes="100vw"

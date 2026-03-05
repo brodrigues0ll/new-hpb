@@ -27,7 +27,7 @@ function GalleryItem({ src, index, onOpen }) {
 
       <Image
         src={src}
-        alt={`Foto da galeria ${index + 1}`}
+        alt={`Foto ${index + 1} do Hotel Pousada Bambuzal em Sana, Macaé - RJ`}
         fill
         /*
           sizes tells the browser (and Next.js optimizer) the actual rendered width:
@@ -152,7 +152,7 @@ export default function GalleryGrid({ images }) {
             <Image
               key={lightbox}
               src={images[lightbox]}
-              alt={`Foto ${lightbox + 1}`}
+              alt={`Foto ${lightbox + 1} do Hotel Pousada Bambuzal em Sana, Macaé - RJ`}
               width={1920}
               height={1280}
               sizes="92vw"

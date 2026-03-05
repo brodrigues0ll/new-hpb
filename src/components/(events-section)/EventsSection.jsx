@@ -58,12 +58,42 @@ export const EventsSection = () => {
   /* Nenhum evento futuro — oculta a seção */
   if (upcomingEvents.length === 0) return null;
 
+  const eventsJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": upcomingEvents.map((event) => ({
+      "@type": "Event",
+      name: `${event.title} — Hotel Pousada Bambuzal`,
+      description: event.description,
+      startDate: event.startDate,
+      endDate: event.endDate,
+      eventStatus: "https://schema.org/EventScheduled",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      location: {
+        "@type": "Place",
+        name: "Hotel Pousada Bambuzal",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Estrada do Sana, 2000",
+          addressLocality: "Sana",
+          addressRegion: "RJ",
+          addressCountry: "BR",
+        },
+      },
+      organizer: { "@id": "https://www.hotelpousadabambuzal.com/#organization" },
+      url: "https://www.hotelpousadabambuzal.com/contato",
+    })),
+  };
+
   return (
     <section
       ref={sectionRef}
       className="relative py-20 md:py-28 px-5 md:px-10 xl:px-20 overflow-hidden bg-[#212121]"
       aria-labelledby="events-heading"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsJsonLd) }}
+      />
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"

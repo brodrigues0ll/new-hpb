@@ -86,6 +86,10 @@ const highlights = [
 export default function DoubleSuit() {
   return (
     <main className="min-h-screen bg-[#212121]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <AccommodationCarousel
         images={IMAGES}
         title="Chalé Duplo"
