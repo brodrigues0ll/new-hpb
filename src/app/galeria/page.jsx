@@ -3,9 +3,30 @@ import GalleryGrid from "@/components/GalleryGrid";
 import gallery from "@/app/galeria/gallery.json";
 
 export const metadata = {
-  title: "Galeria | Hotel Pousada Bambuzal",
+  title: "Galeria de Fotos",
   description:
-    "Veja as fotos do Hotel Pousada Bambuzal em Sana, Macaé — RJ. Natureza, acomodações e momentos inesquecíveis.",
+    "Galeria de fotos do Hotel Pousada Bambuzal em Sana, Macaé - RJ. Veja imagens das acomodações, área natural, Rio Sana, piscinas e os momentos inesquecíveis que esperamos para você.",
+  alternates: {
+    canonical: "/galeria",
+  },
+  openGraph: {
+    title: "Galeria de Fotos — Hotel Pousada Bambuzal",
+    description:
+      "Fotos dos chalés, suítes, natureza e Rio Sana do Hotel Pousada Bambuzal em Sana, Macaé - RJ.",
+    url: "https://www.hotelpousadabambuzal.com/galeria",
+    images: [
+      {
+        url: "https://storage.googleapis.com/hp-bambuzal/about/2.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Área natural do Hotel Pousada Bambuzal em Sana, Macaé - RJ",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://storage.googleapis.com/hp-bambuzal/about/2.jpg"],
+  },
 };
 
 export default function Galeria() {

@@ -12,9 +12,63 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Chalé Família | Hotel Pousada Bambuzal",
+  title: "Chalé Família",
   description:
-    "Chalé Família com dois quartos para toda a família no Hotel Pousada Bambuzal",
+    "Chalé Família com dois quartos separados, garagem privativa e varanda com rede no Hotel Pousada Bambuzal em Sana, Macaé - RJ. A escolha perfeita para famílias que buscam conforto e privacidade na serra.",
+  alternates: {
+    canonical: "/acomodacoes/familysuit",
+  },
+  openGraph: {
+    title: "Chalé Família — Hotel Pousada Bambuzal",
+    description:
+      "Chalé com dois quartos, garagem privativa e varanda com rede em Sana, Macaé - RJ. Perfeito para famílias.",
+    url: "https://www.hotelpousadabambuzal.com/acomodacoes/familysuit",
+    images: [
+      {
+        url: "https://storage.googleapis.com/hp-bambuzal/acomod/chale-familia/page-carousel1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Chalé Família para toda a família — Hotel Pousada Bambuzal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      "https://storage.googleapis.com/hp-bambuzal/acomod/chale-familia/page-carousel1.jpg",
+    ],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Início", item: "https://www.hotelpousadabambuzal.com/" },
+        { "@type": "ListItem", position: 2, name: "Acomodações", item: "https://www.hotelpousadabambuzal.com/acomodacoes" },
+        { "@type": "ListItem", position: 3, name: "Chalé Família", item: "https://www.hotelpousadabambuzal.com/acomodacoes/familysuit" },
+      ],
+    },
+    {
+      "@type": "HotelRoom",
+      name: "Chalé Família",
+      description: "Chalé com dois quartos separados, garagem privativa e varanda com rede. Ideal para famílias que querem conforto e privacidade na Serra de Macaé.",
+      url: "https://www.hotelpousadabambuzal.com/acomodacoes/familysuit",
+      image: "https://storage.googleapis.com/hp-bambuzal/acomod/chale-familia/page-carousel1.jpg",
+      containedInPlace: { "@id": "https://www.hotelpousadabambuzal.com/#lodging" },
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Ar Condicionado", value: true },
+        { "@type": "LocationFeatureSpecification", name: "TV a Cabo", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Wi-Fi Gratuito", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Frigobar", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Dois Quartos Separados", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Garagem Privativa", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Varanda com Rede", value: true },
+      ],
+    },
+  ],
 };
 
 const amenities = [

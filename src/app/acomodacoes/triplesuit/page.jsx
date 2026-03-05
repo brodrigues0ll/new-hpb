@@ -12,9 +12,63 @@ const IMAGES = [
 ];
 
 export const metadata = {
-  title: "Chalé Triplo | Hotel Pousada Bambuzal",
+  title: "Chalé Triplo",
   description:
-    "Chalé Triplo espaçoso com vista deslumbrante no Hotel Pousada Bambuzal",
+    "Chalé Triplo espaçoso com garagem privativa, varanda com rede e vista deslumbrante das montanhas no Hotel Pousada Bambuzal em Sana, Macaé - RJ. Conforto e espaço para até 3 pessoas.",
+  alternates: {
+    canonical: "/acomodacoes/triplesuit",
+  },
+  openGraph: {
+    title: "Chalé Triplo — Hotel Pousada Bambuzal",
+    description:
+      "Chalé espaçoso com garagem privativa, varanda com rede e vista das montanhas em Sana, Macaé - RJ.",
+    url: "https://www.hotelpousadabambuzal.com/acomodacoes/triplesuit",
+    images: [
+      {
+        url: "https://storage.googleapis.com/hp-bambuzal/acomod/chale-triplo/page-carousel1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Chalé Triplo com vista das montanhas — Hotel Pousada Bambuzal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      "https://storage.googleapis.com/hp-bambuzal/acomod/chale-triplo/page-carousel1.jpg",
+    ],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Início", item: "https://www.hotelpousadabambuzal.com/" },
+        { "@type": "ListItem", position: 2, name: "Acomodações", item: "https://www.hotelpousadabambuzal.com/acomodacoes" },
+        { "@type": "ListItem", position: 3, name: "Chalé Triplo", item: "https://www.hotelpousadabambuzal.com/acomodacoes/triplesuit" },
+      ],
+    },
+    {
+      "@type": "HotelRoom",
+      name: "Chalé Triplo",
+      description: "Chalé espaçoso com garagem privativa, varanda com rede e vista deslumbrante das montanhas. Conforto para até 3 pessoas.",
+      url: "https://www.hotelpousadabambuzal.com/acomodacoes/triplesuit",
+      image: "https://storage.googleapis.com/hp-bambuzal/acomod/chale-triplo/page-carousel1.jpg",
+      containedInPlace: { "@id": "https://www.hotelpousadabambuzal.com/#lodging" },
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Ar Condicionado", value: true },
+        { "@type": "LocationFeatureSpecification", name: "TV a Cabo", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Wi-Fi Gratuito", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Frigobar", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Garagem Privativa", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Varanda com Rede", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Vista das Montanhas", value: true },
+      ],
+    },
+  ],
 };
 
 const amenities = [
