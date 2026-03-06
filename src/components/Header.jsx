@@ -43,6 +43,7 @@ export const Header = () => {
             src={logo}
             width={1000}
             height={1000}
+            sizes="(max-width: 768px) 144px, 176px"
             className="w-36 md:w-44 h-auto"
             priority={true}
           />

@@ -132,12 +132,16 @@ export default function AccommodationCarousel({ images = [], title, badgeText })
               aria-selected={index === currentIndex}
               aria-label={`Ir para imagem ${index + 1}`}
               onClick={() => goToSlide(index)}
-              className={`rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "w-7 h-2 bg-orange-500"
-                  : "w-2 h-2 bg-white/40 hover:bg-white/70"
-              }`}
-            />
+              className="p-3 flex items-center justify-center"
+            >
+              <span
+                className={`rounded-full transition-all duration-300 block ${
+                  index === currentIndex
+                    ? "w-7 h-2 bg-orange-500"
+                    : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}
