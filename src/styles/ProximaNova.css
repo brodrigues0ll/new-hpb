@@ -3,6 +3,7 @@
   src: url("../utils/ProximaNovaBold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: url("../utils/ProximaNovaLight.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   src: url("../utils/ProximaNovaRegular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +27,7 @@
   src: url("../utils/ProximaNovaSemibold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,4 +35,5 @@
   src: url("../utils/ProximaNovaThin.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }

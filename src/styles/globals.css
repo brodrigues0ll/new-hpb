@@ -130,10 +130,11 @@ body::-webkit-scrollbar-thumb {
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(234, 88, 12, 0.4), 0 0 40px rgba(234, 88, 12, 0.2);
+    filter: drop-shadow(0 0 8px rgba(234, 88, 12, 0.5));
   }
   50% {
-    box-shadow: 0 0 35px rgba(234, 88, 12, 0.7), 0 0 70px rgba(234, 88, 12, 0.35);
+    filter: drop-shadow(0 0 16px rgba(234, 88, 12, 0.8))
+            drop-shadow(0 0 32px rgba(234, 88, 12, 0.4));
   }
 }
 
@@ -393,8 +394,8 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
   background: linear-gradient(
     135deg,
-    var(--color-accent-orange),
-    #c2410c
+    #c2410c,
+    #9a3412
   );
   transition: var(--transition-smooth);
 }
@@ -403,7 +404,7 @@ body::-webkit-scrollbar-thumb {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #f97316, var(--color-accent-orange));
+  background: linear-gradient(135deg, var(--color-accent-orange), #c2410c);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -414,7 +415,8 @@ body::-webkit-scrollbar-thumb {
 
 .btn-cta:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-orange-glow);
+  filter: drop-shadow(0 0 12px rgba(234, 88, 12, 0.5))
+          drop-shadow(0 0 28px rgba(234, 88, 12, 0.25));
 }
 
 .btn-cta span {

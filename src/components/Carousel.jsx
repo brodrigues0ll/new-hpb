@@ -160,8 +160,8 @@ export const Carousel = () => {
                   px-6 py-3.5 sm:px-8 sm:py-4 md:px-12 md:py-5
                   rounded-full
                   text-xs sm:text-sm md:text-base font-bold tracking-widest text-white
-                  bg-orange-600
-                  hover:bg-orange-500
+                  bg-orange-700
+                  hover:bg-orange-600
                   transition-all duration-300
                   animate-pulse-glow
                   focus-visible:outline-2 focus-visible:outline-orange-400
@@ -222,12 +222,16 @@ export const Carousel = () => {
                 aria-selected={index === currentImageIndex}
                 aria-label={`Ir para imagem ${index + 1}`}
                 onClick={() => goToSlide(index)}
-                className={`rounded-full transition-all duration-400 ${
-                  index === currentImageIndex
-                    ? "w-8 h-2 bg-orange-500"
-                    : "w-2 h-2 bg-white/40 hover:bg-white/70"
-                }`}
-              />
+                className="p-3 flex items-center justify-center"
+              >
+                <span
+                  className={`rounded-full transition-all duration-400 block ${
+                    index === currentImageIndex
+                      ? "w-8 h-2 bg-orange-500"
+                      : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         )}
