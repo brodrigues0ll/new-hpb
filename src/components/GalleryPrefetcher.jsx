@@ -30,12 +30,14 @@ export default function GalleryPrefetcher() {
       // Se já foi feito nas últimas 24h, pula
       try {
         const last = localStorage.getItem(STORAGE_KEY);
-        if (last && Date.now() - parseInt(last, 10) < CACHE_TTL_MS) return;
-      } catch (_) {}
+        if (last && Date.now() - Number.parseInt(last, 10) < CACHE_TTL_MS) return;
+      } catch (_) {
+        // localStorage may be unavailable (private browsing)
+      }
 
       // Aguarda o browser ficar ocioso para não competir com o conteúdo da página
       await new Promise((resolve) => {
-        if ("requestIdleCallback" in window) {
+        if ("requestIdleCallback" in globalThis) {
           requestIdleCallback(resolve, { timeout: 4000 });
         } else {
           setTimeout(resolve, 2500);
@@ -58,10 +60,14 @@ export default function GalleryPrefetcher() {
       // Marca como concluído
       try {
         localStorage.setItem(STORAGE_KEY, Date.now().toString());
-      } catch (_) {}
+      } catch (_) {
+        // localStorage may be unavailable (private browsing)
+      }
     };
 
-    run();
+    run().catch(() => {
+      // prefetch errors are non-critical
+    });
 
     return () => {
       cancelled = true;

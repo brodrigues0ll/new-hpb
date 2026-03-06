@@ -574,7 +574,7 @@ body::-webkit-scrollbar-thumb {
    SELECTION COLOR
    ============================================================ */
 ::selection {
-  background: rgba(234, 88, 12, 0.3);
+  background: rgba(234, 88, 12, 0.75);
   color: #fff;
 }
 

@@ -2,8 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { AccommodCard } from "@/components/AccommodCard";
-import { BedDouble, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { BedDouble } from "lucide-react";
 
 export default function Acomodacoes() {
   const sectionRef = useRef(null);
@@ -94,7 +93,8 @@ export default function Acomodacoes() {
             ACOMODAÇÕES
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-5 animate-fade-in-up delay-100">
-            Nossos <span className="gradient-text">Chalés & Suítes</span>
+            Nossos{" "}
+            <span className="gradient-text">Chalés & Suítes</span>
           </h1>
           <p className="text-neutral-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
             Cada acomodação foi cuidadosamente projetada para proporcionar

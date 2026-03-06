@@ -1,5 +1,6 @@
 "use client";
 
+import PropTypes from "prop-types";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,7 +37,7 @@ export default function AccommodationCarousel({ images = [], title, badgeText })
       {/* Images */}
       {images.map((src, index) => (
         <div
-          key={index}
+          key={src}
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
@@ -124,9 +125,9 @@ export default function AccommodationCarousel({ images = [], title, badgeText })
           role="tablist"
           aria-label="Indicadores de slide"
         >
-          {images.map((_, index) => (
+          {images.map((src, index) => (
             <button
-              key={index}
+              key={src}
               role="tab"
               aria-selected={index === currentIndex}
               aria-label={`Ir para imagem ${index + 1}`}
@@ -143,3 +144,9 @@ export default function AccommodationCarousel({ images = [], title, badgeText })
     </section>
   );
 }
+
+AccommodationCarousel.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
+  badgeText: PropTypes.string.isRequired,
+};

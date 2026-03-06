@@ -1,5 +1,6 @@
 "use client";
 
+import PropTypes from "prop-types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
@@ -62,10 +63,9 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
       />
 
       {/* Menu panel */}
-      <div
+      <dialog
         ref={menuRef}
-        role="dialog"
-        aria-modal="true"
+        open
         aria-label="Menu de navegação"
         className="
           fixed top-20 right-4 z-50 w-[calc(100vw-2rem)] max-w-xs
@@ -73,7 +73,9 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
           animate-slide-menu
           border border-white/10
           shadow-[0_20px_60px_rgba(0,0,0,0.7)]
+          m-0 bg-transparent
         "
+        style={{ border: "none" }}
       >
         {/* Nav links */}
         <nav className="flex flex-col gap-1 mb-6" aria-label="Menu mobile">
@@ -170,7 +172,12 @@ export const Menu = ({ menuOpen, setIsMenu }) => {
             <Facebook className="w-4 h-4" />
           </a>
         </div>
-      </div>
+      </dialog>
     </>
   );
+};
+
+Menu.propTypes = {
+  menuOpen: PropTypes.bool.isRequired,
+  setIsMenu: PropTypes.func.isRequired,
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -9,6 +10,7 @@ const CATEGORY_LABELS = {
   doublesuit: "Chalé",
   triplesuit: "Chalé",
   familysuit: "Família",
+  premiumsuite: "Premium",
 };
 
 export const AccommodCard = ({ title, desc, href, srcImg }) => {
@@ -21,7 +23,7 @@ export const AccommodCard = ({ title, desc, href, srcImg }) => {
       <div className="relative h-56 w-full overflow-hidden img-zoom">
         <Image
           src={srcImg}
-          alt={title}
+          alt={`${title} — Hotel Pousada Bambuzal, Sana - Macaé RJ`}
           fill
           style={{ objectFit: "cover" }}
           sizes="(max-width: 768px) 100vw, 360px"
@@ -78,4 +80,11 @@ export const AccommodCard = ({ title, desc, href, srcImg }) => {
       />
     </article>
   );
+};
+
+AccommodCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  srcImg: PropTypes.string.isRequired,
 };
