@@ -79,7 +79,7 @@ export const Carousel = () => {
         {/* Images */}
         {imagesArray.map((imageUrl, index) => (
           <div
-            key={index}
+            key={imageUrl}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
@@ -215,9 +215,9 @@ export const Carousel = () => {
             role="tablist"
             aria-label="Indicadores de slide"
           >
-            {imagesArray.map((_, index) => (
+            {imagesArray.map((imageUrl, index) => (
               <button
-                key={index}
+                key={imageUrl}
                 role="tab"
                 aria-selected={index === currentImageIndex}
                 aria-label={`Ir para imagem ${index + 1}`}

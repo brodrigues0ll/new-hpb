@@ -118,7 +118,8 @@ export const EventsSection = () => {
               id="events-heading"
               className="reveal text-3xl md:text-5xl font-bold text-white leading-tight max-w-xl"
             >
-              Celebre momentos <span className="gradient-text">especiais</span>{" "}
+              Celebre momentos{" "}
+              <span className="gradient-text">especiais</span>{" "}
               aqui
             </h2>
             <div className="reveal delay-100 shrink-0">

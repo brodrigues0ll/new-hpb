@@ -1,5 +1,6 @@
 "use client";
 
+import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -79,4 +80,11 @@ export const AccommodCard = ({ title, desc, href, srcImg }) => {
       />
     </article>
   );
+};
+
+AccommodCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  srcImg: PropTypes.string.isRequired,
 };

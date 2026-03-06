@@ -1,18 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 import logo from "../images/logo.png";
 import { AlignJustify, X } from "lucide-react";
 import { Menu } from "./Menu";
 import Navbar from "./Navbar";
-import { useRouter } from "next/navigation";
 
 export const Header = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const router = useRouter();
-  const headerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +25,6 @@ export const Header = () => {
 
   return (
     <header
-      ref={headerRef}
       className={`w-full fixed top-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-neutral-950/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-white/5"
@@ -36,13 +33,10 @@ export const Header = () => {
     >
       <div className="max-w-[1600px] h-20 md:h-24 flex items-center justify-between px-5 md:px-10 xl:mx-auto">
         {/* Logo */}
-        <div
-          className="cursor-pointer transition-all duration-300 hover:opacity-85 hover:scale-[1.02] flex items-center"
-          onClick={() => router.push("/")}
-          role="link"
+        <Link
+          href="/"
+          className="transition-all duration-300 hover:opacity-85 hover:scale-[1.02] flex items-center"
           aria-label="Ir para página inicial"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && router.push("/")}
         >
           <Image
             alt="Hotel Pousada Bambuzal"
@@ -52,7 +46,7 @@ export const Header = () => {
             className="w-36 md:w-44 h-auto"
             priority={true}
           />
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <Navbar />

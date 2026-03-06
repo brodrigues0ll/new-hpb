@@ -43,8 +43,8 @@ export default function Galeria() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
-            Momentos do
-            <span className="gradient-text"> Bambuzal</span>
+            Momentos do{" "}
+            <span className="gradient-text">Bambuzal</span>
           </h1>
 
           <div className="flex items-center gap-2 text-neutral-400">

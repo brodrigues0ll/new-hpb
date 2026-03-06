@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Layout } from "@/components/Layout";
 import Script from "next/script";
 import "@/styles/globals.css";
@@ -177,3 +178,7 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+RootLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

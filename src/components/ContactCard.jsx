@@ -1,5 +1,7 @@
 "use client";
 
+import PropTypes from "prop-types";
+
 export const ContactCard = ({ children, href, ariaLabel }) => {
   const inner = (
     <div
@@ -48,4 +50,10 @@ export const ContactCard = ({ children, href, ariaLabel }) => {
   }
 
   return inner;
+};
+
+ContactCard.propTypes = {
+  children: PropTypes.node.isRequired,
+  href: PropTypes.string,
+  ariaLabel: PropTypes.string,
 };

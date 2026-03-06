@@ -1,5 +1,6 @@
 "use client";
 
+import PropTypes from "prop-types";
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
@@ -18,9 +19,11 @@ function GalleryItem({ src, index, onOpen }) {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div
-      className="relative aspect-square overflow-hidden rounded-xl cursor-pointer group bg-[#262626]"
+    <button
+      type="button"
+      className="relative block w-full aspect-square overflow-hidden rounded-xl cursor-pointer group bg-[#262626]"
       onClick={() => onOpen(index)}
+      aria-label={`Abrir foto ${index + 1}`}
     >
       {/* Skeleton shimmer until the optimized thumbnail arrives */}
       {!loaded && <div className="absolute inset-0 skeleton rounded-xl" />}
@@ -46,13 +49,19 @@ function GalleryItem({ src, index, onOpen }) {
 
       {/* Hover overlay */}
       {loaded && (
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300 flex items-center justify-center pointer-events-none">
           <ZoomIn className="w-7 h-7 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
         </div>
       )}
-    </div>
+    </button>
   );
 }
+
+GalleryItem.propTypes = {
+  src: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  onOpen: PropTypes.func.isRequired,
+};
 
 /* ── Main grid + lightbox ─────────────────────────────────── */
 export default function GalleryGrid({ images }) {
@@ -80,13 +89,13 @@ export default function GalleryGrid({ images }) {
       else if (e.key === "ArrowRight") next();
       else if (e.key === "Escape") close();
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    globalThis.addEventListener("keydown", onKey);
+    return () => globalThis.removeEventListener("keydown", onKey);
   }, [lightbox, prev, next]);
 
   // Lock body scroll
   useEffect(() => {
-    document.body.style.overflow = lightbox !== null ? "hidden" : "";
+    document.body.style.overflow = lightbox === null ? "" : "hidden";
     return () => { document.body.style.overflow = ""; };
   }, [lightbox]);
 
@@ -106,10 +115,12 @@ export default function GalleryGrid({ images }) {
 
       {/* ── Lightbox ─────────────────────────────────────────── */}
       {lightbox !== null && (
-        <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center"
-          style={{ background: "rgba(5,5,5,0.96)" }}
-          onClick={close}
+        <dialog
+          open
+          className="fixed inset-0 z-[9999] flex items-center justify-center m-0 p-0 max-w-none max-h-none w-full h-full"
+          style={{ background: "rgba(5,5,5,0.96)", border: "none" }}
+          onClick={(e) => { if (e.target === e.currentTarget) close(); }}
+          aria-label="Galeria de fotos"
         >
           {/* Close */}
           <button
@@ -135,10 +146,7 @@ export default function GalleryGrid({ images }) {
           </button>
 
           {/* Image area */}
-          <div
-            className="relative max-w-[92vw] max-h-[90vh] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative max-w-[92vw] max-h-[90vh] flex items-center justify-center">
             {/* Skeleton while the high-res version loads */}
             {!lightboxLoaded && (
               <div className="w-[80vw] max-w-[960px] aspect-video skeleton rounded-xl" />
@@ -174,8 +182,12 @@ export default function GalleryGrid({ images }) {
           >
             <ChevronRight className="w-5 h-5" />
           </button>
-        </div>
+        </dialog>
       )}
     </>
   );
 }
+
+GalleryGrid.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
