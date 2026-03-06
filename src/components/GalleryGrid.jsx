@@ -119,9 +119,16 @@ export default function GalleryGrid({ images }) {
           open
           className="fixed inset-0 z-[9999] flex items-center justify-center m-0 p-0 max-w-none max-h-none w-full h-full"
           style={{ background: "rgba(5,5,5,0.96)", border: "none" }}
-          onClick={(e) => { if (e.target === e.currentTarget) close(); }}
           aria-label="Galeria de fotos"
         >
+          {/* Backdrop — clicking outside the image closes the lightbox */}
+          <button
+            type="button"
+            className="absolute inset-0 w-full h-full cursor-default bg-transparent"
+            onClick={close}
+            aria-label="Fechar galeria"
+            tabIndex={-1}
+          />
           {/* Close */}
           <button
             className="absolute top-5 right-5 z-10 w-10 h-10 rounded-full glass border border-white/15 text-white hover:text-orange-400 flex items-center justify-center transition-all"
@@ -146,7 +153,7 @@ export default function GalleryGrid({ images }) {
           </button>
 
           {/* Image area */}
-          <div className="relative max-w-[92vw] max-h-[90vh] flex items-center justify-center">
+          <div className="relative z-[1] max-w-[92vw] max-h-[90vh] flex items-center justify-center">
             {/* Skeleton while the high-res version loads */}
             {!lightboxLoaded && (
               <div className="w-[80vw] max-w-[960px] aspect-video skeleton rounded-xl" />

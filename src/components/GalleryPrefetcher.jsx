@@ -65,9 +65,7 @@ export default function GalleryPrefetcher() {
       }
     };
 
-    run().catch(() => {
-      // prefetch errors are non-critical
-    });
+    run().catch(console.error);
 
     return () => {
       cancelled = true;
