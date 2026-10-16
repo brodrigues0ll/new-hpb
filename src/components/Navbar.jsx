@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "INÍCIO", href: "/" },
   { label: "ACOMODAÇÕES", href: "/acomodacoes" },
   { label: "GALERIA", href: "/galeria" },
+  { label: "CHECK-IN", href: "/checkin" },
   { label: "CONTATO", href: "/contato" },
 ];
 
